@@ -1,0 +1,22 @@
+R_DEF: Internal format may change without notice
+local
+attr SmoothBottomBarStyle
+attr? activeItem
+attr? backgroundColor
+attr? cornerRadius
+attr? duration
+attr? iconMargin
+attr? iconSize
+attr? iconTint
+attr? iconTintActive
+attr? indicatorColor
+attr? indicatorRadius
+attr? itemFontFamily
+attr? itemPadding
+attr? menu
+attr? sideMargins
+attr? textColor
+attr? textSize
+string app_name
+string ellipsis
+styleable SmoothBottomBar menu backgroundColor indicatorColor indicatorRadius sideMargins itemPadding textColor itemFontFamily textSize iconSize iconMargin iconTint iconTintActive cornerRadius activeItem duration

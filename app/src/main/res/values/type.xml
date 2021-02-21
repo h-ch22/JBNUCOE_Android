@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="type">
+
+        <item>칭찬해요</item>
+        <item>개선해주세요</item>
+        <item>궁금해요</item>
+
+    </string-array>
+
+</resources>

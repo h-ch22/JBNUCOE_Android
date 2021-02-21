@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/logoLayout"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="#C83F51B5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/coeLogo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:alpha="0.6"
+            android:src="@drawable/coelogo_white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/coeLogo">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumsquare_bold"
+                android:text="이제 학적사항을"
+                android:textColor="#ffffff"
+                android:textSize="30sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.7"
+                android:fontFamily="@font/nanumsquare_extrabold"
+                android:text=" 확인합니다"
+                android:textColor="#ffffff"
+                android:textSize="30sp" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id = "@+id/activateLL"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Spinner
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:spinnerMode="dialog"
+                android:id = "@+id/spinner_dept"
+                app:layout_constraintTop_toTopOf="@id/activateLL"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <EditText
+                android:id = "@+id/field_studentNo"
+                android:layout_width="350dp"
+                android:layout_height="60dp"
+                android:layout_marginTop = "30dp"
+                android:drawableStart="@drawable/ic_email"
+                android:drawableTint="#C83F51B5"
+                android:drawablePadding="20dp"
+                android:hint = "학번"
+                android:inputType="textEmailAddress"
+                android:textColor = "#000000"
+                android:fontFamily="@font/nanumsquare_bold"
+                android:background="@null"
+                android:textColorHint="#C83F51B5"
+                app:layout_constraintTop_toBottomOf="@id/spinner_dept"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <com.ornach.nobobutton.NoboButton
+                android:id = "@+id/btn_load"
+                android:layout_width = "250dp"
+                android:layout_height = "60dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintTop_toBottomOf="@id/img_idCard"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:nb_text = "학생증 불러오기"
+                app:nb_borderColor="#C83F51B5"
+                app:nb_borderWidth="2dp"
+                app:nb_backgroundColor="#ffffff"
+                app:nb_focusColor="#C83F51B5"
+                app:nb_textColor="#C83F51B5"
+                app:nb_radius="10dp"
+                app:nb_iconPosition="right"
+                app:nb_iconSize="60dp"/>
+
+            <ImageView
+                android:id = "@+id/img_idCard"
+                android:visibility="invisible"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:layout_constraintTop_toBottomOf="@id/field_studentNo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <com.royrodriguez.transitionbutton.TransitionButton
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:id = "@+id/btn_checkAcadmic"
+                android:text = "학적 유효성 확인하기"
+                android:textColor="#ffffff"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/nanumsquare_bold"
+                app:defaultColor="#C83F51B5"
+                app:loaderColor="#ffffff"
+                app:layout_constraintTop_toBottomOf="@id/btn_load"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+
+
+
+
+</LinearLayout>

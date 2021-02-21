@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fitsSystemWindows="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/logoLayout"
+        android:layout_width="0dp"
+        android:layout_height="300dp"
+        android:background="#C83F51B5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/coeLogo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:alpha="0.6"
+            android:src="@drawable/coelogo_white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/coeLogo">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumsquare_bold"
+                android:text="전북대학교"
+                android:textColor="#ffffff"
+                android:textSize="30sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.7"
+                android:fontFamily="@font/nanumsquare_extrabold"
+                android:text=" 공과대학"
+                android:textColor="#ffffff"
+                android:textSize="30sp" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logoLayout">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/field_email"
+                android:layout_width="350dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="30dp"
+                android:background="@null"
+                android:drawableStart="@drawable/ic_email"
+                android:drawablePadding="20dp"
+                android:drawableTint="#C83F51B5"
+                android:fontFamily="@font/nanumsquare_bold"
+                android:hint="E-Mail"
+                android:inputType="textEmailAddress"
+                android:textColor="#000000"
+                android:textColorHint="#C83F51B5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/field_password"
+                android:layout_width="350dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:background="@null"
+                android:drawableStart="@drawable/ic_password"
+                android:drawableTint="#C83F51B5"
+                android:drawablePadding="20dp"
+                android:fontFamily="@font/nanumsquare_bold"
+                android:hint="비밀번호"
+                android:inputType="textPassword"
+                android:textColor="#000000"
+                android:textColorHint="#C83F51B5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/field_email" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/btnLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/field_password">
+
+                <CheckBox
+                    android:id="@+id/checkbox_autoSignIn"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintWidth_percent="0.4"
+                    app:layout_constraintHeight_percent="0.5"
+                    android:textSize="15sp"
+                    android:buttonTint="#C83F51B5"
+                    android:checked="false"
+                    android:fontFamily="@font/nanumsquare_bold"
+                    android:outlineAmbientShadowColor="#C83F51B5"
+                    android:outlineSpotShadowColor="#C83F51B5"
+                    android:text="자동 로그인"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/btn_resetPassword"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <Button
+                    android:id="@+id/btn_resetPassword"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintWidth_percent="0.6"
+                    app:layout_constraintHeight_percent="0.5"
+                    android:background="#00ff0000"
+                    android:fontFamily="@font/nanumsquare_bold"
+                    android:textSize="15sp"
+                    android:text="로그인에 문제가 있나요?"
+                    app:layout_constraintStart_toEndOf="@id/checkbox_autoSignIn"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textColor="#C83F51B5" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.royrodriguez.transitionbutton.TransitionButton
+                android:id="@+id/btn_signIn"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:fontFamily="@font/nanumsquare_bold"
+                android:text="로그인하기"
+                android:textColor="#ffffff"
+                app:defaultColor="#C83F51B5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnLayout"
+                app:loaderColor="#ffffff" />
+
+            <Button
+                android:id="@+id/btn_signUp"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:background="#00ff0000"
+                android:fontFamily="@font/nanumsquare_bold"
+                android:text="계정이 없나요? 지금 가입해보세요!"
+                android:textColor="#C83F51B5"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_signIn" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

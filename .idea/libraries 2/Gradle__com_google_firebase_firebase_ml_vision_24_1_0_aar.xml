@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: com.google.firebase:firebase-ml-vision:24.1.0@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ebbcb7e4220343f0097bbfeddad845bb/jetified-firebase-ml-vision-24.1.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/711995d2f0798a9463b7637d626ec864/jetified-firebase-ml-vision-24.1.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/01e16ece4e56e684f71b2d55f9e089c4/jetified-firebase-ml-vision-24.1.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/01e16ece4e56e684f71b2d55f9e089c4/jetified-firebase-ml-vision-24.1.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/01e16ece4e56e684f71b2d55f9e089c4/jetified-firebase-ml-vision-24.1.0/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.firebase/firebase-ml-vision/24.1.0/1d0cc0cc9ca372af4811a7caa5c5962dd654fcaf/firebase-ml-vision-24.1.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>

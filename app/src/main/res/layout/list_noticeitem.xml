@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/shape_list"
+    android:layout_width="match_parent"
+    android:layout_marginVertical="10dp"
+    android:layout_gravity="center"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id = "@+id/img_notice"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <LinearLayout
+        android:id = "@+id/storeLL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toEndOf="@id/img_notice"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:id = "@+id/noticeTitle"
+            android:paddingHorizontal="20dp"
+            android:text = ""
+            android:textColor="#000000"
+            android:fontFamily="@font/nanumsquare_extrabold"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="20dp"
+            android:layout_marginTop="20dp"
+            android:id = "@+id/noticeDate"
+            android:text = ""
+            android:textColor="#595959"
+            android:fontFamily="@font/nanumsquare_bold"
+            android:textSize="10sp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

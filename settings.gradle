@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name = "전북대학교 공과대학"

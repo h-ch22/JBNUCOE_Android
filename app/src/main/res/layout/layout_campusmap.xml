@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <fragment
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.naver.maps.map.MapFragment"
+        app:navermap_locationButtonEnabled = "true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+    </fragment>
+
+    <androidx.appcompat.widget.Toolbar
+        app:layout_constraintTop_toTopOf="parent"
+        android:id = "@+id/toolbar"
+        android:layout_margin="10dp"
+        android:background="@drawable/titlebar_mapview"
+        android:layout_width="match_parent"
+        android:theme = "@style/MyThemeOverlay_Toolbar2"
+        android:layout_height = "150dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id = "@+id/txt_title"
+                android:textSize="20sp"
+                android:text = "캠퍼스맵"
+                android:textColor="#ffffff"
+                android:fontFamily="@font/nanumsquare_bold"/>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <com.royrodriguez.transitionbutton.TransitionButton
+                        android:layout_width="80dp"
+                        android:layout_height="40dp"
+                        android:id = "@+id/btn_all"
+                        android:text = "전체"
+                        android:textColor="#000000"
+                        app:defaultColor="#ffffff"/>
+
+                    <com.royrodriguez.transitionbutton.TransitionButton
+                        android:layout_width="80dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="10dp"
+                        android:id = "@+id/btn_build1"
+                        android:text = "1호관"
+                        android:textColor="#ff756b"
+                        app:defaultColor="#ffffff"/>
+
+                    <com.royrodriguez.transitionbutton.TransitionButton
+                        android:layout_width="80dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="10dp"
+                        android:id = "@+id/btn_build2"
+                        android:text = "2호관"
+                        android:textColor="#ffb969"
+                        app:defaultColor="#ffffff"/>
+
+                    <com.royrodriguez.transitionbutton.TransitionButton
+                        android:layout_width="80dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="10dp"
+                        android:id = "@+id/btn_build3"
+                        android:text = "3호관"
+                        android:textColor="#dbba00"
+                        app:defaultColor="#ffffff"/>
+
+                    <com.royrodriguez.transitionbutton.TransitionButton
+                        android:layout_width="80dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="10dp"
+                        android:id = "@+id/btn_build4"
+                        android:text = "4호관"
+                        android:textColor="#75a300"
+                        app:defaultColor="#ffffff"/>
+
+                    <com.royrodriguez.transitionbutton.TransitionButton
+                        android:layout_width="80dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="10dp"
+                        android:id = "@+id/btn_build5"
+                        android:text = "5호관"
+                        android:textColor="#2bc23a"
+                        app:defaultColor="#ffffff"/>
+
+                    <com.royrodriguez.transitionbutton.TransitionButton
+                        android:layout_width="80dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="10dp"
+                        android:id = "@+id/btn_build6"
+                        android:text = "6호관"
+                        android:textColor="#42d6b1"
+                        app:defaultColor="#ffffff"/>
+
+                    <com.royrodriguez.transitionbutton.TransitionButton
+                        android:layout_width="80dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="10dp"
+                        android:id = "@+id/btn_build7"
+                        android:text = "7호관"
+                        android:textColor="#ff756b"
+                        app:defaultColor="#ffffff"/>
+
+                    <com.royrodriguez.transitionbutton.TransitionButton
+                        android:layout_width="80dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="10dp"
+                        android:id = "@+id/btn_build8"
+                        android:text = "8호관"
+                        android:textColor="#4ac9ff"
+                        app:defaultColor="#ffffff"/>
+
+                    <com.royrodriguez.transitionbutton.TransitionButton
+                        android:layout_width="80dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="10dp"
+                        android:id = "@+id/btn_build9"
+                        android:text = "9호관"
+                        android:textColor="#ff756b"
+                        app:defaultColor="#ffffff"/>
+
+                    <com.royrodriguez.transitionbutton.TransitionButton
+                        android:layout_width="80dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="10dp"
+                        android:id = "@+id/btn_convenience"
+                        android:text = "편의 시설"
+                        android:textColor="#001c82"
+                        app:defaultColor="#ffffff"/>
+
+                    <com.royrodriguez.transitionbutton.TransitionButton
+                        android:layout_width="80dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="10dp"
+                        android:id = "@+id/btn_restaurant"
+                        android:text = "학식"
+                        android:textColor="#8254ff"
+                        app:defaultColor="#ffffff"/>
+
+                    <com.royrodriguez.transitionbutton.TransitionButton
+                        android:layout_width="80dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="10dp"
+                        android:id = "@+id/btn_cafe"
+                        android:text = "카페"
+                        android:textColor="#c52fd6"
+                        app:defaultColor="#ffffff"/>
+
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+
+        </LinearLayout>
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.royrodriguez.transitionbutton.TransitionButton
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:visibility="gone"
+            android:id = "@+id/btn_showInside"
+            android:layout_marginBottom="20dp"
+            android:text = "실내 지도 보기"
+            android:textColor="#ffffff"
+            android:fontFamily="@font/nanumsquare_bold"
+            app:defaultColor="#C83F51B5"
+            app:loaderColor="#ffffff"
+            android:layout_gravity="bottom"/>
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

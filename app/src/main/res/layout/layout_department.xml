@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    android:background="#C83F51B5">
+
+    <androidx.appcompat.widget.Toolbar
+        app:layout_constraintTop_toTopOf="parent"
+        android:id = "@+id/toolbar"
+        android:gravity="top"
+        android:layout_gravity="top"
+        android:background="@drawable/titlebar"
+        android:layout_width="match_parent"
+        android:theme = "@style/MyThemeOverlay_Toolbar2"
+        android:layout_height = "80dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id = "@+id/txt_title"
+            android:textSize="20sp"
+            android:text = "국별 소개"
+            android:textColor="#ffffff"
+            android:fontFamily="@font/nanumsquare_bold"/>
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="350dp"
+                    android:layout_height="250dp"
+                    android:src = "@drawable/img_council" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text = "1. 기획국"
+                    android:textSize="25sp"
+                    android:textColor="#ffffff"
+                    android:fontFamily="@font/nanumsquare_extrabold"/>
+
+                <TextView
+                    android:id = "@+id/txt_plan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text = ""
+                    android:textSize="20sp"
+                    android:textColor="#ffffff"
+                    android:fontFamily="@font/nanumsquare_bold"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text = "기획국장 유 승 훈\n기획부국장 김 남 현"
+                    android:textSize="20sp"
+                    android:textColor="#ffffff"
+                    android:fontFamily="@font/nanumpen"/>
+
+                <ImageView
+                    android:layout_width="350dp"
+                    android:layout_height="250dp"
+                    android:src = "@drawable/img_council" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text = "2. 대외협력국"
+                    android:textSize="25sp"
+                    android:textColor="#ffffff"
+                    android:fontFamily="@font/nanumsquare_extrabold"/>
+
+                <TextView
+                    android:id = "@+id/txt_cooperation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text = ""
+                    android:textSize="20sp"
+                    android:textColor="#ffffff"
+                    android:fontFamily="@font/nanumsquare_bold"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text = "대외협력국장 문 현 준\n대외협력부국장 한 지 우"
+                    android:textSize="20sp"
+                    android:textColor="#ffffff"
+                    android:fontFamily="@font/nanumpen"/>
+
+                <ImageView
+                    android:layout_width="350dp"
+                    android:layout_height="250dp"
+                    android:src = "@drawable/img_council" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text = "3. 사무국"
+                    android:textSize="25sp"
+                    android:textColor="#ffffff"
+                    android:fontFamily="@font/nanumsquare_extrabold"/>
+
+                <TextView
+                    android:id = "@+id/txt_affairs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text = ""
+                    android:textSize="20sp"
+                    android:textColor="#ffffff"
+                    android:fontFamily="@font/nanumsquare_bold"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text = "사무국장 윤 승 빈\n사무부국장 강 송 연"
+                    android:textSize="20sp"
+                    android:textColor="#ffffff"
+                    android:fontFamily="@font/nanumpen"/>
+
+                <ImageView
+                    android:layout_width="350dp"
+                    android:layout_height="250dp"
+                    android:src = "@drawable/img_council" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text = "4. 시설복지국"
+                    android:textSize="25sp"
+                    android:textColor="#ffffff"
+                    android:fontFamily="@font/nanumsquare_extrabold"/>
+
+                <TextView
+                    android:id = "@+id/txt_welfair"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text = ""
+                    android:textSize="20sp"
+                    android:textColor="#ffffff"
+                    android:fontFamily="@font/nanumsquare_bold"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text = "시설복지국장 이 병 철\n시설복지부국장 오 성 현"
+                    android:textSize="20sp"
+                    android:textColor="#ffffff"
+                    android:fontFamily="@font/nanumpen"/>
+
+                <ImageView
+                    android:layout_width="350dp"
+                    android:layout_height="250dp"
+                    android:src = "@drawable/img_council" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text = "5. 운영지원국"
+                    android:textSize="25sp"
+                    android:textColor="#ffffff"
+                    android:fontFamily="@font/nanumsquare_extrabold"/>
+
+                <TextView
+                    android:id = "@+id/txt_support"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text = ""
+                    android:textSize="20sp"
+                    android:textColor="#ffffff"
+                    android:fontFamily="@font/nanumsquare_bold"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text = "운영지원국장 최 인 정\n운영지원부국장 최 지 수"
+                    android:textSize="20sp"
+                    android:textColor="#ffffff"
+                    android:fontFamily="@font/nanumpen"/>
+
+                <ImageView
+                    android:layout_width="350dp"
+                    android:layout_height="250dp"
+                    android:src = "@drawable/img_council" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text = "6. 정책국"
+                    android:textSize="25sp"
+                    android:textColor="#ffffff"
+                    android:fontFamily="@font/nanumsquare_extrabold"/>
+
+                <TextView
+                    android:id = "@+id/txt_policy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text = ""
+                    android:textSize="20sp"
+                    android:textColor="#ffffff"
+                    android:fontFamily="@font/nanumsquare_bold"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text = "정책국장 배 선 명\n정책부국장 정 환 희"
+                    android:textSize="20sp"
+                    android:textColor="#ffffff"
+                    android:fontFamily="@font/nanumpen"/>
+
+                <ImageView
+                    android:layout_width="350dp"
+                    android:layout_height="250dp"
+                    android:src = "@drawable/img_promote" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text = "7. 홍보국"
+                    android:textSize="25sp"
+                    android:textColor="#ffffff"
+                    android:fontFamily="@font/nanumsquare_extrabold"/>
+
+                <TextView
+                    android:id = "@+id/txt_promote"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:text = ""
+                    android:textSize="15sp"
+                    android:textColor="#ffffff"
+                    android:fontFamily="@font/nanumsquare_bold"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text = "홍보국장 하 창 진\n홍보부국장 이 하 영"
+                    android:textSize="20sp"
+                    android:textColor="#ffffff"
+                    android:fontFamily="@font/nanumpen"/>
+
+            </LinearLayout>
+
+
+        </ScrollView>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

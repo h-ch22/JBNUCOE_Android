@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/navigation_alliance">
+
+    <fragment
+        android:id="@+id/navigation_alliance"
+        android:name="kr.ac.jbnu.coe.ui.alliance.AllianceFragment"
+        android:label="제휴 업체"
+        tools:layout="@layout/fragment_alliance" >
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_sports"
+        android:name="kr.ac.jbnu.coe.ui.sports.SportsFragment"
+        android:label="공스"
+        tools:layout="@layout/fragment_sports" >
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_notifications"
+        android:name="kr.ac.jbnu.coe.ui.notifications.NoticeFragment"
+        android:label="공지사항"
+        tools:layout="@layout/fragment_notifications" >
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_more"
+        android:name="kr.ac.jbnu.coe.ui.more.MoreFragment"
+        android:label="더 보기"
+        tools:layout="@layout/fragment_more" />
+</navigation>

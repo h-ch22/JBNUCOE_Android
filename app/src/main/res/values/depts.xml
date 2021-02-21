@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="depts">
+
+        <item>건축공학과</item>
+        <item>고분자.나노공학과</item>
+        <item>기계공학과</item>
+        <item>기계설계공학부</item>
+        <item>기계시스템공학부</item>
+        <item>도시공학과</item>
+        <item>바이오메디컬공학부</item>
+        <item>산업정보시스템공학과</item>
+        <item>소프트웨어공학과</item>
+        <item>신소재공학부</item>
+        <item>신소재공학부(전자재료공학)</item>
+        <item>양자시스템공학과</item>
+        <item>유기소재섬유공학과</item>
+        <item>유기소재파이버공학과</item>
+        <item>융합기술공학과</item>
+        <item>융합기술공학부</item>
+        <item>융합기술공학부(IT응용시스템공학과)</item>
+        <item>자원.에너지공학과</item>
+        <item>전기공학과</item>
+        <item>전자공학부</item>
+        <item>컴퓨터공학부</item>
+        <item>토목/환경/자원.에너지공학부</item>
+        <item>항공우주공학과</item>
+        <item>화학공학부</item>
+        <item>IT응용시스템공학과</item>
+        <item>IT정보공학과</item>
+
+    </string-array>
+
+</resources>

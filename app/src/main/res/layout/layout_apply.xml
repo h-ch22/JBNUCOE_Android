@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="#C83F51B5"
+    tools:context=".ui.alliance.activity_allianceList">
+
+    <androidx.appcompat.widget.Toolbar
+        app:layout_constraintTop_toTopOf="parent"
+        android:id = "@+id/toolbar"
+        android:background="@drawable/titlebar"
+        android:layout_width="match_parent"
+        android:theme = "@style/MyThemeOverlay_Toolbar2"
+        android:layout_height = "80dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id = "@+id/txt_title"
+            android:textSize="20sp"
+            android:text = "용병 구인 신청하기"
+            android:textColor="#ffffff"
+            android:fontFamily="@font/nanumsquare_bold"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/field_date"
+                android:layout_gravity="center"
+                android:layout_width="350dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="30dp"
+                android:background="@null"
+                android:fontFamily="@font/nanumsquare_bold"
+                android:hint="날짜 및 시간 선택"
+                android:inputType= "none"
+                android:focusable="false"
+                android:clickable="true"
+                android:textColor = "#ffffff"
+                android:textColorHint="#ffffff" />
+
+            <EditText
+                android:id="@+id/field_roomName"
+                android:layout_gravity="center"
+                android:layout_width="350dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="30dp"
+                android:background="@null"
+                android:fontFamily="@font/nanumsquare_bold"
+                android:hint="방 이름"
+                android:textColor = "#ffffff"
+                android:textColorHint="#ffffff" />
+
+            <EditText
+                android:id="@+id/field_event"
+                android:layout_gravity="center"
+                android:layout_width="350dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="30dp"
+                android:background="@null"
+                android:fontFamily="@font/nanumsquare_bold"
+                android:hint="종목명"
+                android:textColor = "#ffffff"
+                android:textColorHint="#ffffff" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/field_allPeople"
+                    android:layout_width="175dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="30dp"
+                    android:background="@null"
+                    android:fontFamily="@font/nanumsquare_bold"
+                    android:hint="전체 인원 (본인 포함)"
+                    android:inputType="number"
+                    android:textColor = "#ffffff"
+                    android:textColorHint="#ffffff" />
+
+                <EditText
+                    android:id="@+id/field_applyPeople"
+                    android:layout_width="175dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginStart="15dp"
+                    android:background="@null"
+                    android:fontFamily="@font/nanumsquare_bold"
+                    android:hint="현재 인원 (본인 포함)"
+                    android:inputType="number"
+                    android:textColor = "#ffffff"
+                    android:textColorHint="#ffffff" />
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/field_location"
+                android:layout_gravity="center"
+                android:layout_width="350dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="30dp"
+                android:background="@null"
+                android:fontFamily="@font/nanumsquare_bold"
+                android:hint="장소"
+                android:textColor = "#ffffff"
+                android:textColorHint="#ffffff" />
+
+            <EditText
+                android:id="@+id/field_limit"
+                android:layout_gravity="center"
+                android:layout_width="350dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="30dp"
+                android:background="@null"
+                android:fontFamily="@font/nanumsquare_bold"
+                android:hint="기타 제한 사항"
+                android:textColor = "#ffffff"
+                android:textColorHint="#ffffff" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:layout_margin="20dp"
+                android:background="@drawable/titlebar_mapview">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nanumsquare_extrabold"
+                    android:textColor="#ffffff"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:text = "제 3자 개인정보 제공 사항"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/nanumsquare_bold"
+                    android:textColor="#ffffff"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:text = "성명, 학과, 학번, 전화번호"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/nanumsquare_bold"
+                    android:textColor="#ffffff"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:text = "아래 버튼을 클릭함으로 위 정보를 제 3자에게 제공하는 것에 대해 동의하는 것으로 간주합니다."/>
+
+            </LinearLayout>
+
+            <com.royrodriguez.transitionbutton.TransitionButton
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:id = "@+id/btn_apply"
+                android:text = "구인 신청하기"
+                android:textColor="#ffffff"
+                android:fontFamily="@font/nanumsquare_bold"
+                app:defaultColor="#C83F51B5"
+                app:loaderColor="#ffffff"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:fontFamily="@font/nanumsquare_bold"
+                android:textColor="#ffffff"
+                android:gravity="center"
+                android:textSize="15sp"
+                android:text = "공과대학 학생회는 용병 구인 및 스포츠 진행에 있어 중계 역할만 진행하며, 스포츠 진행 및 구인 도중 발생하는 모든 문제에 대해 책임지지 않습니다."/>
+
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/navigation_alliance"
+        android:icon="@drawable/ic_alliance"
+        app:cnb_iconColor = "#4696eb"
+        android:title="제휴 업체" />
+
+    <item
+        android:id="@+id/navigation_sports"
+        android:icon="@drawable/ic_sports"
+        app:cnb_iconColor = "#613fb1"
+        android:title="공스" />
+
+    <item
+        android:id="@+id/navigation_notifications"
+        android:icon="@drawable/ic_notifications_black_24dp"
+        app:cnb_iconColor = "#d6365d"
+        android:title="공지사항" />
+
+    <item
+        android:id="@+id/navigation_more"
+        android:icon="@drawable/ic_more"
+        app:cnb_iconColor = "#67ab5b"
+        android:title="더 보기" />
+
+</menu>

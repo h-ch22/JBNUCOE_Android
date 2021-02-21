@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="kr.ac.jbnu.coe">
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.전북대학교공과대학">
+        <activity
+            android:name=".UserManagement.activity_signIn"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="com.naver.maps.map.CLIENT_ID"
+            android:value="wicv6qxnf3" />
+
+        <activity android:name=".UserManagement.activity_license"/>
+        <activity android:name=".UserManagement.activity_resetPassword"/>
+        <activity android:name=".UserManagement.activity_insertUserInfo"/>
+        <activity android:name=".UserManagement.activity_checkAcademic"/>
+        <activity android:name=".ui.alliance.activity_allianceList"/>
+        <activity android:name=".ui.alliance.activity_storeDetail"/>
+        <activity android:name=".ui.alliance.activity_storeMap"/>
+        <activity android:name=".ui.sports.activity_apply"/>
+        <activity android:name=".ui.sports.activity_sportsCheck"/>
+        <activity android:name=".ui.notifications.activity_noticeDetail"/>
+        <activity android:name= ".ui.more.activity_introduceMain"/>
+        <activity android:name=".ui.more.activity_introduce"/>
+        <activity android:name=".ui.more.activity_introduceDept"/>
+        <activity android:name=".ui.more.activity_campusMap"/>
+        <activity android:name=".ui.more.activity_feedbackHubMain"/>
+        <activity android:name=".ui.more.activity_allFeedback"/>
+        <activity android:name=".ui.more.activity_feedbackDetail"/>
+        <activity android:name=".ui.sports.activity_sportsDetail"/>
+        <activity android:name=".ui.sports.activity_getMyRoom"/>
+        <activity android:name=".ui.sports.activity_myRoomDetail"/>
+        <activity android:name=".ui.more.activity_showInside"/>
+        <activity android:name=".ui.more.activity_productStatus"/>
+        <activity android:name=".ui.more.activity_percentage"/>
+        <activity android:name=".MainActivity"/>
+    </application>
+
+</manifest>

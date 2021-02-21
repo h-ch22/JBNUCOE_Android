@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#C83F51B5"
+    android:fitsSystemWindows="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:gravity = "center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id = "@+id/txt_author"
+                app:layout_constraintTop_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="20dp"
+                android:layout_width="300dp"
+                android:scrollbars="vertical"
+                android:layout_height="wrap_content"
+                android:text = ""
+                android:textColor="#ffffff"
+                android:fontFamily="@font/nanumsquare_regular"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id = "@+id/txt_date"
+                app:layout_constraintTop_toBottomOf="@id/txt_author"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="20dp"
+                android:layout_width="300dp"
+                android:scrollbars="vertical"
+                android:layout_height="wrap_content"
+                android:text = ""
+                android:textColor="#ffffff"
+                android:fontFamily="@font/nanumsquare_regular"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id = "@+id/txt_type"
+                app:layout_constraintTop_toBottomOf="@id/txt_date"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="20dp"
+                android:layout_width="300dp"
+                android:scrollbars="vertical"
+                android:layout_height="wrap_content"
+                android:text = ""
+                android:textColor="#ffffff"
+                android:fontFamily="@font/nanumsquare_regular"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id = "@+id/txt_category"
+                app:layout_constraintTop_toBottomOf="@id/txt_type"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="20dp"
+                android:layout_width="300dp"
+                android:scrollbars="vertical"
+                android:layout_height="wrap_content"
+                android:text = ""
+                android:textColor="#ffffff"
+                android:fontFamily="@font/nanumsquare_regular"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id = "@+id/txt_contents"
+                app:layout_constraintTop_toBottomOf="@id/txt_category"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="20dp"
+                android:layout_width="300dp"
+                android:scrollbars="vertical"
+                android:layout_height="wrap_content"
+                android:text = ""
+                android:textColor="#ffffff"
+                android:fontFamily="@font/nanumsquare_bold"
+                android:textSize="25sp"/>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <androidx.appcompat.widget.Toolbar
+        app:layout_constraintTop_toTopOf="parent"
+        android:id = "@+id/toolbar"
+        android:background="@drawable/titlebar"
+        android:layout_width="match_parent"
+        android:theme = "@style/MyThemeOverlay_Toolbar2"
+        android:layout_height = "80dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id = "@+id/txt_title"
+            android:textSize="20sp"
+            android:text = ""
+            android:textColor="#ffffff"
+            android:fontFamily="@font/nanumsquare_bold"/>
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

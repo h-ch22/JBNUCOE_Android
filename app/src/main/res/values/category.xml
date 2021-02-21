@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="category">
+
+        <item>시설</item>
+        <item>복지</item>
+        <item>소통</item>
+        <item>공약</item>
+        <item>행사</item>
+        <item>앱</item>
+        <item>대여사업</item>
+        <item>기타</item>
+
+    </string-array>
+
+</resources>

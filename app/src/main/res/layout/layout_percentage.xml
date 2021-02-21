@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#C83F51B5"
+    android:fitsSystemWindows="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        app:layout_constraintTop_toTopOf="parent"
+        android:id = "@+id/toolbar"
+        android:background="@drawable/titlebar"
+        android:layout_width="match_parent"
+        android:theme = "@style/MyThemeOverlay_Toolbar2"
+        android:layout_height = "150dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id = "@+id/txt_title"
+                android:textSize="20sp"
+                android:text = "실시간 공약 이행률 확인"
+                android:textColor="#ffffff"
+                android:fontFamily="@font/nanumsquare_bold"/>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <com.royrodriguez.transitionbutton.TransitionButton
+                        android:layout_width="80dp"
+                        android:layout_height="40dp"
+                        android:id = "@+id/btn_all"
+                        android:text = "전체"
+                        android:textColor="#000000"
+                        app:defaultColor="#ffffff"/>
+
+                    <com.royrodriguez.transitionbutton.TransitionButton
+                        android:layout_width="80dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="10dp"
+                        android:id = "@+id/btn_communication"
+                        android:text = "소통"
+                        android:textColor="#ff756b"
+                        app:defaultColor="#ffffff"/>
+
+                    <com.royrodriguez.transitionbutton.TransitionButton
+                        android:layout_width="80dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="10dp"
+                        android:id = "@+id/btn_welfare"
+                        android:text = "복지"
+                        android:textColor="#ffb969"
+                        app:defaultColor="#ffffff"/>
+
+                    <com.royrodriguez.transitionbutton.TransitionButton
+                        android:layout_width="80dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="10dp"
+                        android:id = "@+id/btn_culture"
+                        android:text = "문화/예술"
+                        android:textColor="#dbba00"
+                        app:defaultColor="#ffffff"/>
+
+                    <com.royrodriguez.transitionbutton.TransitionButton
+                        android:layout_width="80dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="10dp"
+                        android:id = "@+id/btn_learning"
+                        android:text = "학업"
+                        android:textColor="#75a300"
+                        app:defaultColor="#ffffff"/>
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+        </LinearLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:id = "@+id/pledgeList"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_below= "@id/progressLL"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/progressLL"/>
+
+    <FrameLayout
+        android:id = "@+id/progressLL"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginVertical="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <com.mikhaellopez.circularprogressbar.CircularProgressBar
+            android:id="@+id/circularProgressBar"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            app:cpb_background_progressbar_color="#ffffff"
+            app:cpb_background_progressbar_width="5dp"
+            app:cpb_progress_direction="to_right"
+            app:cpb_progressbar_color="#3f51b5"
+            app:cpb_progressbar_width="10dp"
+            app:cpb_round_border="true" />
+
+        <TextView
+            android:id = "@+id/txt_percentage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text = ""
+            android:textColor="#ffffff"
+            android:layout_gravity="center"
+            android:fontFamily="@font/nanumsquare_extrabold"
+            android:textSize="15sp"/>
+
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

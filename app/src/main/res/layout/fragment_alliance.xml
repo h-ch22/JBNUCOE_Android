@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="10dp"
+    tools:context=".ui.alliance.AllianceFragment">
+
+    <TextView
+        android:id = "@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text = "제휴 업체"
+        android:fontFamily="@font/nanumsquare_extrabold"
+        android:textSize="30sp"
+        android:layout_marginHorizontal="30dp"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/logoLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title">
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="350dp"
+            android:layout_height="200dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.rd.PageIndicatorView
+            android:id="@+id/pageIndicatorView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_horizontal|bottom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/viewPager"
+            app:piv_animationType="worm"
+            app:piv_dynamicCount="true"
+            app:piv_interactiveAnimation="true"
+            app:piv_selectedColor="#ffae00"
+            app:piv_unselectedColor="#494949"
+            app:piv_viewPager="@id/viewPager" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logoLayout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id = "@+id/title_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text = "원하시는 카테고리를 선택해보세요!"
+                android:fontFamily="@font/nanumsquare_extrabold"
+                android:textSize="15sp"
+                android:layout_marginHorizontal="30dp"
+                android:textColor="#000000"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id = "@+id/category_first"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/title_category"
+                app:layout_constraintBottom_toTopOf="@id/secondLL"
+                android:layout_marginTop="40dp">
+
+                <LinearLayout
+                    android:id = "@+id/allLL"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/mealLL"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id = "@+id/btn_all"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src = "@drawable/ic_all"
+                        android:scaleType="fitXY"
+                        android:background = "#00ff0000" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text = "전체 보기"
+                        android:fontFamily="@font/nanumsquare_bold"
+                        android:layout_marginTop="5dp"
+                        android:textSize="20sp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id = "@+id/mealLL"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    app:layout_constraintStart_toEndOf="@id/allLL"
+                    app:layout_constraintEnd_toStartOf="@id/soupLL"
+                    app:layout_constraintTop_toTopOf="@id/category_first"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id = "@+id/btn_meal"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src = "@drawable/ic_meal_foreground"
+                        android:padding = "10dp"
+                        android:scaleType="fitXY"
+                        android:background = "@drawable/ic_meal_background" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text = "식사"
+                        android:fontFamily="@font/nanumsquare_bold"
+                        android:layout_marginTop="5dp"
+                        android:textSize="20sp"/>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id = "@+id/soupLL"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    app:layout_constraintStart_toEndOf="@id/mealLL"
+                    app:layout_constraintTop_toTopOf="@id/category_first"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id = "@+id/btn_sports"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src = "@drawable/ic_sports_foreground"
+                        android:tint="#ffffff"
+                        android:padding = "10dp"
+                        android:scaleType="fitXY"
+                        android:background = "@drawable/ic_sports_background" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text = "스포츠"
+                        android:fontFamily="@font/nanumsquare_bold"
+                        android:layout_marginTop="5dp"
+                        android:textSize="20sp"/>
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id = "@+id/secondLL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                app:layout_constraintTop_toBottomOf="@id/category_first">
+
+                <LinearLayout
+                    android:id = "@+id/cafeLL"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/convenienceLL"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id = "@+id/btn_cafe"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src = "@drawable/ic_cafe_foreground"
+                        android:padding = "10dp"
+                        android:scaleType="fitXY"
+                        android:background = "@drawable/ic_cafe_background" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text = "카페"
+                        android:fontFamily="@font/nanumsquare_bold"
+                        android:layout_marginTop="5dp"
+                        android:textSize="20sp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id = "@+id/convenienceLL"
+                    app:layout_constraintStart_toEndOf="@id/cafeLL"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/alcoholLL"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id = "@+id/btn_convenience"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src = "@drawable/ic_convenience_foreground"
+                        android:padding = "10dp"
+                        android:scaleType="fitXY"
+                        android:background = "@drawable/ic_convenience_background" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text = "편의"
+                        android:fontFamily="@font/nanumsquare_bold"
+                        android:layout_marginTop="5dp"
+                        android:textSize="20sp"/>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id = "@+id/alcoholLL"
+                    app:layout_constraintStart_toEndOf="@id/convenienceLL"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id = "@+id/btn_alcohol"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src = "@drawable/ic_alcohol_foreground"
+                        android:padding = "10dp"
+                        android:scaleType="fitXY"
+                        android:background = "@drawable/ic_alcohol_background" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text = "술"
+                        android:fontFamily="@font/nanumsquare_bold"
+                        android:layout_marginTop="5dp"
+                        android:textSize="20sp"/>
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

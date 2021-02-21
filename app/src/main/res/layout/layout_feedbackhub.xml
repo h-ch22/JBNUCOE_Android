@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/logoLayout"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_gravity="top"
+        android:background="#C83F51B5">
+
+        <ImageView
+            android:id="@+id/coeLogo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:alpha="0.6"
+            android:src="@drawable/coelogo_white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/coeLogo">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumsquare_bold"
+                android:text="학우님의 의견을"
+                android:textColor="#ffffff"
+                android:textSize="30sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.7"
+                android:fontFamily="@font/nanumsquare_extrabold"
+                android:text=" 들려주세요"
+                android:textColor="#ffffff"
+                android:textSize="30sp" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:alpha="0.7"
+                android:fontFamily="@font/nanumsquare_extrabold"
+                android:text="1. 카테고리를 선택해주세요."
+                android:textColor="#000000"
+                android:textSize="15sp" />
+
+            <Spinner
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:spinnerMode="dialog"
+                android:id = "@+id/spinner_category" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:alpha="0.7"
+                android:fontFamily="@font/nanumsquare_extrabold"
+                android:text="2. 피드백 종류를 선택해주세요."
+                android:textColor="#000000"
+                android:textSize="15sp" />
+
+            <Spinner
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:spinnerMode="dialog"
+                android:id = "@+id/spinner_type" />
+
+            <EditText
+                android:id="@+id/field_title"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_gravity="center"
+                android:background="@null"
+                android:fontFamily="@font/nanumsquare_bold"
+                android:windowSoftInputMode="adjustResize|stateHidden"
+                android:hint="피드백의 제목을 입력해주세요."
+                android:textColor="#000000"
+                android:textColorHint="#C83F51B5" />
+
+            <EditText
+                android:id="@+id/field_feedback"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_gravity="center"
+                android:background="@null"
+                android:fontFamily="@font/nanumsquare_bold"
+                android:hint="학우님의 의견을 입력해주세요."
+                android:windowSoftInputMode="adjustResize|stateHidden"
+                android:inputType="text"
+                android:textColor="#000000"
+                android:textColorHint="#C83F51B5" />
+
+            <com.royrodriguez.transitionbutton.TransitionButton
+                android:id = "@+id/sendFeedback"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:text = "피드백 보내기"
+                android:fontFamily="@font/nanumsquare_bold"
+                android:textSize="15sp"
+                android:textColor="#ffffff"/>
+
+            <com.royrodriguez.transitionbutton.TransitionButton
+                android:id = "@+id/allFeedback"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:visibility="invisible"
+                android:text = "모든 피드백 보기"
+                android:fontFamily="@font/nanumsquare_bold"
+                android:textSize="15sp"
+                app:defaultColor="#ffffff"
+                android:textColor="#C83F51B5"/>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

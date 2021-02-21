@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/logoLayout"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="#C83F51B5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/coeLogo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:alpha="0.6"
+            android:src="@drawable/coelogo_white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/coeLogo">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nanumsquare_bold"
+                android:text="인적사항을"
+                android:textColor="#ffffff"
+                android:textSize="30sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.7"
+                android:fontFamily="@font/nanumsquare_extrabold"
+                android:text=" 입력해주세요"
+                android:textColor="#ffffff"
+                android:textSize="30sp" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/logoLayout"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logoLayout">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/scrollLL"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <EditText
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:id="@+id/field_email"
+                android:layout_width="350dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="30dp"
+                android:background="@null"
+                android:drawableStart="@drawable/ic_email"
+                android:drawableTint="#C83F51B5"
+                android:drawablePadding="20dp"
+                android:fontFamily="@font/nanumsquare_bold"
+                android:hint="E-Mail"
+                android:inputType="textEmailAddress"
+                android:textColor = "#000000"
+                android:textColorHint="#C83F51B5" />
+
+            <EditText
+                app:layout_constraintTop_toBottomOf="@id/field_email"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:id="@+id/field_password"
+                android:layout_width="350dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:background="@null"
+                android:drawableStart="@drawable/ic_password"
+                android:drawableTint="#C83F51B5"
+                android:drawablePadding="20dp"
+                android:fontFamily="@font/nanumsquare_bold"
+                android:inputType="textPassword"
+                android:textColor = "#000000"
+                android:hint="비밀번호"
+                android:textColorHint="#C83F51B5" />
+
+            <TextView
+                app:layout_constraintTop_toBottomOf="@id/field_password"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:id = "@+id/passwordhelper"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text = ""
+                android:layout_marginTop="10dp"
+                android:textSize="20sp"
+                android:fontFamily="@font/nanumsquare_bold"/>
+
+            <EditText
+                app:layout_constraintTop_toBottomOf="@id/passwordhelper"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:id="@+id/field_repassword"
+                android:layout_width="350dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:background="@null"
+                android:drawableStart="@drawable/ic_checkpassword"
+                android:drawableTint="#C83F51B5"
+                android:drawablePadding="20dp"
+                android:fontFamily="@font/nanumsquare_bold"
+                android:inputType="textPassword"
+                android:hint="비밀번호 확인"
+                android:textColor = "#000000"
+                android:textColorHint="#C83F51B5" />
+
+            <TextView
+                app:layout_constraintTop_toBottomOf="@id/field_repassword"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:id = "@+id/checkPasswordHelper"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text = ""
+                android:layout_marginTop="10dp"
+                android:textSize="20sp"
+                android:fontFamily="@font/nanumsquare_bold"/>
+
+            <EditText
+                app:layout_constraintTop_toBottomOf="@id/checkPasswordHelper"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:id="@+id/field_name"
+                android:layout_width="350dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:background="@null"
+                android:drawableStart="@drawable/ic_name"
+                android:drawableTint="#C83F51B5"
+                android:drawablePadding="20dp"
+                android:fontFamily="@font/nanumsquare_bold"
+                android:hint="이름"
+                android:inputType="textPersonName"
+                android:textColor = "#000000"
+                android:textColorHint="#C83F51B5" />
+
+            <EditText
+                app:layout_constraintTop_toBottomOf="@id/field_name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:id="@+id/field_phone"
+                android:layout_width="350dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:background="@null"
+                android:drawableStart="@drawable/ic_phone"
+                android:drawableTint="#C83F51B5"
+                android:drawablePadding="20dp"
+                android:inputType="phone"
+                android:fontFamily="@font/nanumsquare_bold"
+                android:hint="전화번호"
+                android:textColor = "#000000"
+                android:textColorHint="#C83F51B5" />
+
+            <com.royrodriguez.transitionbutton.TransitionButton
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:id="@+id/btn_next"
+                android:text = "다음 단계로"
+                android:textColor="#ffffff"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/nanumsquare_bold"
+                app:defaultColor="#C83F51B5"
+                app:loaderColor="#ffffff"
+                app:layout_constraintTop_toBottomOf="@id/field_phone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</LinearLayout>

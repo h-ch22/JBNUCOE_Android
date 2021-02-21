@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="10dp"
+    tools:context=".ui.sports.SportsFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id = "@+id/titleLL">
+
+        <TextView
+            android:id = "@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text = "공스 시작하기"
+            android:fontFamily="@font/nanumsquare_extrabold"
+            android:textSize="30sp"
+            android:layout_marginHorizontal="30dp"
+            android:textColor="#000000" />
+
+        <ImageButton
+            android:id="@+id/btn_account"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="end"
+            android:layout_marginEnd = "20dp"
+            android:background="#00ff0000"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_user" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id = "@+id/logo_sports"
+        android:layout_width="370dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="20dp"
+        android:scaleType="centerCrop"
+        android:src = "@drawable/logo_sports"
+        app:layout_constraintTop_toBottomOf="@id/titleLL"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logo_sports"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id = "@+id/title_contents"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text = "공스는 공과대학 학우님들을 위한 스포츠 상대 팀 또는 부족한 인원을 더욱 편리하게 구할 수 있도록 도와드리는 서비스입니다."
+                android:gravity="center"
+                android:fontFamily="@font/nanumsquare_bold"
+                android:textSize="20sp"
+                android:layout_marginHorizontal="30dp"
+                android:textColor="#000000"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <com.ornach.nobobutton.NoboButton
+                android:id = "@+id/btn_checkStatus"
+                android:layout_width="300dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/title_contents"
+                app:nb_text = "용병 모집 현황 확인하기"
+                app:nb_textSize="20sp"
+                app:nb_backgroundColor="#C83F51B5"
+                app:nb_focusColor="#C83F51B5"
+                app:nb_textColor="#ffffff"
+                app:nb_radius="10dp"
+                app:nb_iconPosition="right"
+                app:nb_iconSize="60dp"/>
+
+            <Button
+                android:id = "@+id/btn_apply"
+                android:layout_width="300dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_checkStatus"
+                android:text = "용병 구인 신청하기"
+                android:textSize="15sp"
+                android:background="#00ff0000"
+                android:textColor="#C83F51B5"/>
+
+            <Button
+                android:id = "@+id/btn_checkApply"
+                android:layout_width="300dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_apply"
+                android:text = "관리 중인 방 확인하기"
+                android:textSize="15sp"
+                android:background="#00ff0000"
+                android:textColor="#C83F51B5"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
