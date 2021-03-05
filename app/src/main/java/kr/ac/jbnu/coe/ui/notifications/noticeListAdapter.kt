@@ -1,20 +1,16 @@
 package kr.ac.jbnu.coe.ui.notifications
 
 import android.content.Context
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.graphics.drawable.DrawableCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import kr.ac.jbnu.coe.R
-import kr.ac.jbnu.coe.ui.alliance.storeItem
 
 class noticeListAdapter(val context : Context, val noticeList : ArrayList<noticeItem>, val itemClick : (noticeItem) -> Unit) : RecyclerView.Adapter<noticeListAdapter.Holder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {

@@ -5,10 +5,8 @@ import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.graphics.drawable.DrawableCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
@@ -48,25 +46,18 @@ class storeListAdapter(val context : Context, val storeList : ArrayList<storeIte
             benefit?.text = storeItem.benefit
             itemView.setOnClickListener{itemClick(storeItem)}
 
-            if(storeItem.isAvailable == "이용 가능"){
-                status?.text = "이용 가능"
-                status?.setTextColor(Color.parseColor("#009630"))
-                status?.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_check, 0, 0, 0)
-                status?.compoundDrawables?.get(0)?.setTint(Color.parseColor("#009630"))
-            }
-
-            if(storeItem.isAvailable == "이용 불가"){
-                status?.text = "이용 불가"
-                status?.setTextColor(Color.parseColor("#ff5145"))
-                status?.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_error, 0, 0, 0)
-                status?.compoundDrawables?.get(0)?.setTint(Color.parseColor("#ff5145"))
+            if(storeItem.isAvailable != "이용 시간을 알 수 없습니다."){
+                status?.text = "이용 가능 시간 : " + storeItem.open + " ~ " + storeItem.close
+                status?.setTextColor(Color.parseColor("#3F51B5"))
+                status?.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_clock, 0, 0, 0)
+                status?.compoundDrawables?.get(0)?.setTint(Color.parseColor("#3F51B5"))
             }
 
             if(storeItem.isAvailable == "이용 시간을 알 수 없습니다."){
                 status?.text = "이용 시간을 알 수 없습니다."
-                status?.setTextColor(Color.parseColor("#ffcb0f"))
+                status?.setTextColor(Color.parseColor("#bf0000"))
                 status?.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_warning, 0, 0, 0)
-                status?.compoundDrawables?.get(0)?.setTint(Color.parseColor("#ffcb0f"))
+                status?.compoundDrawables?.get(0)?.setTint(Color.parseColor("#bf0000"))
             }
         }
     }

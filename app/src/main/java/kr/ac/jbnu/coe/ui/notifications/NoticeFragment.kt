@@ -13,11 +13,14 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import kr.ac.jbnu.coe.R
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import java.util.*
+import kotlin.Comparator
 
-class NoticeFragment : Fragment() {
+class NoticeFragment : Fragment(){
     lateinit var noticeListAdapter : noticeListAdapter
-    var noticeList = arrayListOf<noticeItem>()
+    var noticeList = ArrayList<noticeItem>()
     lateinit var noticeListView : RecyclerView
     val db = Firebase.firestore
     val storageReference = FirebaseStorage.getInstance().reference
@@ -48,25 +51,35 @@ class NoticeFragment : Fragment() {
                 val index = document.get("index").toString()
                 val title = document.id
                 val downloadURL = storageReference.child( "notice/"+index+".png")
-
+                val format = DateTimeFormatter.ofPattern("yyyy. MM. dd. HH:mm")
                 noticeList.add(noticeItem(title = title, date = dateTime, img = downloadURL))
-                Collections.reverse(noticeList)
-                noticeListAdapter = noticeListAdapter(mContext, noticeList){
-                        noticeItem ->
-                    val intent = Intent(mContext, activity_noticeDetail::class.java)
-                    intent.putExtra("noticeTitle", noticeItem.title)
-                    intent.putExtra("dateTime", noticeItem.date)
-                    intent.putExtra("image", noticeItem.img.toString())
 
-                    startActivity(intent)
-                }
 
-                noticeListView.adapter = noticeListAdapter
-
-                val layoutManager = LinearLayoutManager(mContext)
-                noticeListView.layoutManager = layoutManager
-                noticeListView.setHasFixedSize(true)
             }
+
+            noticeList.sortByDescending { it.date }
+
+            noticeListAdapter = noticeListAdapter(mContext, noticeList){
+                noticeItem ->
+                val intent = Intent(mContext, activity_noticeDetail::class.java)
+                intent.putExtra("noticeTitle", noticeItem.title)
+                intent.putExtra("dateTime", noticeItem.date)
+                intent.putExtra("image", noticeItem.img.toString())
+
+                startActivity(intent)
+            }
+
+
+            noticeListView.adapter = noticeListAdapter
+
+            val layoutManager = LinearLayoutManager(mContext)
+            noticeListView.layoutManager = layoutManager
+            noticeListView.setHasFixedSize(true)
+
+            print(noticeList)
+            println(noticeList.toString())
         }
     }
+
+
 }

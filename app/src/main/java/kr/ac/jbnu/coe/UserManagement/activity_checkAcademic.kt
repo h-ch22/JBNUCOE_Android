@@ -2,8 +2,6 @@ package kr.ac.jbnu.coe.UserManagement
 
 import android.content.DialogInterface
 import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
@@ -26,9 +24,7 @@ import com.ornach.nobobutton.NoboButton
 import com.royrodriguez.transitionbutton.TransitionButton
 import kr.ac.jbnu.coe.MainActivity
 import kr.ac.jbnu.coe.R
-import java.io.FileNotFoundException
 import java.io.IOException
-import java.io.InputStream
 
 class activity_checkAcademic : AppCompatActivity(), View.OnClickListener{
     var email = ""
@@ -174,14 +170,14 @@ class activity_checkAcademic : AppCompatActivity(), View.OnClickListener{
                         val text = block.text
 
                         for(line in block.lines){
-                            var lineText = line.getText()
+                            var lineText = line.getText().replace("\\s".toRegex(), "")
                             Log.d("line", lineText)
 
                             if(lineText.equals(name)){
                                 isNamePassed = true
                             }
 
-                            if(lineText.equals(dept)){
+                            if(lineText.contains(dept)){
                                 isDeptPassed = true
                             }
 

@@ -7,7 +7,6 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.royrodriguez.transitionbutton.TransitionButton
 import kr.ac.jbnu.coe.R
-import kr.ac.jbnu.coe.ui.alliance.activity_storeMap
 
 class activity_introduceMain : AppCompatActivity(), View.OnClickListener{
     lateinit var toolbar : androidx.appcompat.widget.Toolbar

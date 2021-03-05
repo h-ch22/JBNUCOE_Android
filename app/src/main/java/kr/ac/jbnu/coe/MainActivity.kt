@@ -9,7 +9,6 @@ import kr.ac.jbnu.coe.ui.alliance.AllianceFragment
 import kr.ac.jbnu.coe.ui.more.MoreFragment
 import kr.ac.jbnu.coe.ui.notifications.NoticeFragment
 import kr.ac.jbnu.coe.ui.sports.SportsFragment
-import kotlin.system.exitProcess
 
 
 class MainActivity : AppCompatActivity() {
@@ -46,7 +45,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 if (fragment != null) {
-                    var fragmentManager = getSupportFragmentManager();
+                    val fragmentManager = getSupportFragmentManager();
                     fragmentManager.beginTransaction()
                         .replace(R.id.main_fragment, fragment)
                         .commit();

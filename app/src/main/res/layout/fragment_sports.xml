@@ -24,7 +24,7 @@
             android:fontFamily="@font/nanumsquare_extrabold"
             android:textSize="30sp"
             android:layout_marginHorizontal="30dp"
-            android:textColor="#000000" />
+            android:textColor="@color/black" />
 
         <ImageButton
             android:id="@+id/btn_account"
@@ -72,7 +72,7 @@
                 android:fontFamily="@font/nanumsquare_bold"
                 android:textSize="20sp"
                 android:layout_marginHorizontal="30dp"
-                android:textColor="#000000"
+                android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"/>

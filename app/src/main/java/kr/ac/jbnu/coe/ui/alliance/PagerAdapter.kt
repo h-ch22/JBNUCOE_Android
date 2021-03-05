@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.viewpager.widget.PagerAdapter
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.google.firebase.storage.FirebaseStorage
@@ -30,7 +31,8 @@ class PagerAdapter : PagerAdapter {
         imgList[0] = storageReference.child("ad/ad_1.png")
         imgList[1] = storageReference.child("ad/ad_2.png")
         imgList[2] = storageReference.child("ad/ad_3.png")
-        Glide.with(mContext!!).load(imgList[position]).transform(CenterCrop(), RoundedCorners(10)).into(imageView)
+        Glide.with(mContext!!).load(imgList[position]).diskCacheStrategy(DiskCacheStrategy.NONE)
+                .skipMemoryCache(true).transform(CenterCrop(), RoundedCorners(10)).into(imageView)
 
         container.addView(view)
         return view

@@ -2,6 +2,8 @@ package kr.ac.jbnu.coe.ui.alliance
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,10 +13,13 @@ import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.rd.PageIndicatorView
 import kr.ac.jbnu.coe.R
+import java.util.*
+import kotlin.concurrent.timer
 
 
 class AllianceFragment : Fragment(), View.OnClickListener {
     private var pagerAdapter: PagerAdapter? = null
+    private var currentPage : Int = 1
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -39,6 +44,34 @@ class AllianceFragment : Fragment(), View.OnClickListener {
         pagerAdapter = PagerAdapter(context)
         pager.adapter = pagerAdapter
         indicator.setCount(3)
+
+        val handler = Handler()
+        val runnable = object : Runnable{
+            override fun run(){
+
+                pager.setCurrentItem((pager.currentItem + 1) % 3, true)
+
+                handler.postDelayed(this, 2000)
+
+            }
+        }
+
+        pager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener{
+            override fun onPageScrollStateChanged(state: Int) {
+                currentPage = state + 1
+            }
+
+            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+
+            }
+
+            override fun onPageSelected(position: Int) {
+
+            }
+
+        })
+
+        handler.post(runnable)
 
         btn_all.setOnClickListener(this)
         btn_meal.setOnClickListener(this)

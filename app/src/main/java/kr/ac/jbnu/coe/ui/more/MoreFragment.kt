@@ -7,6 +7,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,11 +16,11 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.esafirm.imagepicker.features.ImagePicker
 import com.esafirm.imagepicker.features.ReturnMode
@@ -32,7 +33,6 @@ import com.royrodriguez.transitionbutton.TransitionButton
 import kr.ac.jbnu.coe.MainActivity
 import kr.ac.jbnu.coe.R
 import kr.ac.jbnu.coe.UserManagement.activity_signIn
-import org.w3c.dom.Text
 
 class MoreFragment : Fragment(), View.OnClickListener {
     lateinit var img_profile : ImageView
@@ -118,7 +118,8 @@ class MoreFragment : Fragment(), View.OnClickListener {
                 btn_changeProfile.stopAnimation(TransitionButton.StopAnimationStyle.SHAKE, null)
                 Toast.makeText(mContext, "정상 처리 되었습니다.", Toast.LENGTH_SHORT).show()
 
-                getData()
+                val ft = fragmentManager?.beginTransaction()
+                ft?.detach(this)?.attach(this)?.commit()
             }
         }
     }
@@ -157,7 +158,8 @@ class MoreFragment : Fragment(), View.OnClickListener {
                         }
                     }
                     downloadURL = storageReference.child("profile/" + email + "/profile_" + email + ".jpg")
-                    Glide.with(this).load(downloadURL).apply(
+                    Glide.with(this).load(downloadURL).diskCacheStrategy(DiskCacheStrategy.NONE)
+                            .skipMemoryCache(true).apply(
                         RequestOptions.bitmapTransform(
                             CircleCrop()
                         )).into(img_profile)
@@ -203,6 +205,11 @@ class MoreFragment : Fragment(), View.OnClickListener {
 
             if(v.id == R.id.btn_feedbackHub){
                 val intent = Intent(mContext, activity_feedbackHubMain::class.java)
+                startActivity(intent)
+            }
+
+            if(v.id == R.id.btn_info){
+                val intent = Intent(mContext, activity_info::class.java)
                 startActivity(intent)
             }
 

@@ -2,23 +2,13 @@ package kr.ac.jbnu.coe.ui.more
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.list_sportsitem.*
 import kr.ac.jbnu.coe.R
-import kr.ac.jbnu.coe.ui.alliance.activity_storeDetail
-import kr.ac.jbnu.coe.ui.alliance.activity_storeMap
-import kr.ac.jbnu.coe.ui.alliance.storeItem
-import kr.ac.jbnu.coe.ui.alliance.storeListAdapter
-import kr.ac.jbnu.coe.ui.sports.sportsItem
-import kr.ac.jbnu.coe.ui.sports.sportsListAdapter
-import java.text.SimpleDateFormat
-import java.util.*
 
 class activity_allFeedback : AppCompatActivity() {
     val db = Firebase.firestore

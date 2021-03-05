@@ -88,7 +88,7 @@
                 android:fontFamily="@font/nanumsquare_bold"
                 android:hint="E-Mail"
                 android:inputType="textEmailAddress"
-                android:textColor = "#000000"
+                android:textColor = "@color/black"
                 android:textColorHint="#C83F51B5" />
 
             <EditText
@@ -105,7 +105,7 @@
                 android:drawablePadding="20dp"
                 android:fontFamily="@font/nanumsquare_bold"
                 android:inputType="textPassword"
-                android:textColor = "#000000"
+                android:textColor = "@color/black"
                 android:hint="비밀번호"
                 android:textColorHint="#C83F51B5" />
 
@@ -136,7 +136,7 @@
                 android:fontFamily="@font/nanumsquare_bold"
                 android:inputType="textPassword"
                 android:hint="비밀번호 확인"
-                android:textColor = "#000000"
+                android:textColor = "@color/black"
                 android:textColorHint="#C83F51B5" />
 
             <TextView
@@ -166,7 +166,7 @@
                 android:fontFamily="@font/nanumsquare_bold"
                 android:hint="이름"
                 android:inputType="textPersonName"
-                android:textColor = "#000000"
+                android:textColor = "@color/black"
                 android:textColorHint="#C83F51B5" />
 
             <EditText
@@ -184,7 +184,7 @@
                 android:inputType="phone"
                 android:fontFamily="@font/nanumsquare_bold"
                 android:hint="전화번호"
-                android:textColor = "#000000"
+                android:textColor = "@color/black"
                 android:textColorHint="#C83F51B5" />
 
             <com.royrodriguez.transitionbutton.TransitionButton

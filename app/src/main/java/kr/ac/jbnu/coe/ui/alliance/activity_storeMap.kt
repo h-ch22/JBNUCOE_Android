@@ -1,18 +1,12 @@
 package kr.ac.jbnu.coe.ui.alliance
 
 import android.Manifest
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Color
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners
-import com.bumptech.glide.request.RequestOptions
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.naver.maps.geometry.LatLng
@@ -20,8 +14,6 @@ import com.naver.maps.map.*
 import com.naver.maps.map.overlay.Marker
 import com.naver.maps.map.util.FusedLocationSource
 import kr.ac.jbnu.coe.R
-import java.util.concurrent.Executor
-import java.util.concurrent.Executors
 
 class activity_storeMap : AppCompatActivity(), OnMapReadyCallback{
     lateinit var toolbar : androidx.appcompat.widget.Toolbar

@@ -1,5 +1,6 @@
 package kr.ac.jbnu.coe.ui.more
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
@@ -43,12 +44,18 @@ class activity_productStatus : AppCompatActivity(), View.OnClickListener{
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowTitleEnabled(false)
 
+        btn_checkLog.setOnClickListener(this)
         setStatus()
         setProductStatus()
     }
 
     override fun onClick(v: View?) {
-        TODO("Not yet implemented")
+        if (v != null){
+            if (v.id == R.id.btn_checkLog){
+                val intent = Intent(this, activity_logList::class.java)
+                startActivity(intent)
+            }
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

@@ -17,7 +17,6 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.royrodriguez.transitionbutton.TransitionButton
 import kr.ac.jbnu.coe.R
-import kr.ac.jbnu.coe.ui.alliance.activity_storeMap
 
 class activity_noticeDetail : AppCompatActivity(){
     lateinit var img : ImageView

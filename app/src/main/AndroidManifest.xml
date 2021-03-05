@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.전북대학교공과대학">
         <activity
-            android:name=".UserManagement.activity_signIn"
+            android:name="kr.ac.jbnu.coe.UserManagement.activity_signIn"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,30 +27,33 @@
             android:name="com.naver.maps.map.CLIENT_ID"
             android:value="wicv6qxnf3" />
 
-        <activity android:name=".UserManagement.activity_license"/>
-        <activity android:name=".UserManagement.activity_resetPassword"/>
-        <activity android:name=".UserManagement.activity_insertUserInfo"/>
-        <activity android:name=".UserManagement.activity_checkAcademic"/>
-        <activity android:name=".ui.alliance.activity_allianceList"/>
-        <activity android:name=".ui.alliance.activity_storeDetail"/>
-        <activity android:name=".ui.alliance.activity_storeMap"/>
-        <activity android:name=".ui.sports.activity_apply"/>
-        <activity android:name=".ui.sports.activity_sportsCheck"/>
-        <activity android:name=".ui.notifications.activity_noticeDetail"/>
-        <activity android:name= ".ui.more.activity_introduceMain"/>
-        <activity android:name=".ui.more.activity_introduce"/>
-        <activity android:name=".ui.more.activity_introduceDept"/>
-        <activity android:name=".ui.more.activity_campusMap"/>
-        <activity android:name=".ui.more.activity_feedbackHubMain"/>
-        <activity android:name=".ui.more.activity_allFeedback"/>
-        <activity android:name=".ui.more.activity_feedbackDetail"/>
-        <activity android:name=".ui.sports.activity_sportsDetail"/>
-        <activity android:name=".ui.sports.activity_getMyRoom"/>
-        <activity android:name=".ui.sports.activity_myRoomDetail"/>
-        <activity android:name=".ui.more.activity_showInside"/>
-        <activity android:name=".ui.more.activity_productStatus"/>
-        <activity android:name=".ui.more.activity_percentage"/>
-        <activity android:name=".MainActivity"/>
+        <activity android:name="kr.ac.jbnu.coe.UserManagement.activity_license"/>
+        <activity android:name="kr.ac.jbnu.coe.UserManagement.activity_resetPassword"/>
+        <activity android:name="kr.ac.jbnu.coe.UserManagement.activity_insertUserInfo"/>
+        <activity android:name="kr.ac.jbnu.coe.UserManagement.activity_checkAcademic"/>
+        <activity android:name="kr.ac.jbnu.coe.ui.alliance.activity_allianceList"/>
+        <activity android:name="kr.ac.jbnu.coe.ui.alliance.activity_storeDetail"/>
+        <activity android:name="kr.ac.jbnu.coe.ui.alliance.activity_storeMap"/>
+        <activity android:name="kr.ac.jbnu.coe.ui.sports.activity_apply"/>
+        <activity android:name="kr.ac.jbnu.coe.ui.sports.activity_sportsCheck"/>
+        <activity android:name="kr.ac.jbnu.coe.ui.notifications.activity_noticeDetail"/>
+        <activity android:name= "kr.ac.jbnu.coe.ui.more.activity_introduceMain"/>
+        <activity android:name="kr.ac.jbnu.coe.ui.more.activity_introduce"/>
+        <activity android:name="kr.ac.jbnu.coe.ui.more.activity_introduceDept"/>
+        <activity android:name="kr.ac.jbnu.coe.ui.more.activity_campusMap"/>
+        <activity android:name="kr.ac.jbnu.coe.ui.more.activity_feedbackHubMain"/>
+        <activity android:name="kr.ac.jbnu.coe.ui.more.activity_allFeedback"/>
+        <activity android:name="kr.ac.jbnu.coe.ui.more.activity_feedbackDetail"/>
+        <activity android:name="kr.ac.jbnu.coe.ui.sports.activity_sportsDetail"/>
+        <activity android:name="kr.ac.jbnu.coe.ui.sports.activity_getMyRoom"/>
+        <activity android:name="kr.ac.jbnu.coe.ui.sports.activity_myRoomDetail"/>
+        <activity android:name="kr.ac.jbnu.coe.ui.more.activity_showInside"/>
+        <activity android:name="kr.ac.jbnu.coe.ui.more.activity_productStatus"/>
+        <activity android:name="kr.ac.jbnu.coe.ui.more.activity_percentage"/>
+        <activity android:name="kr.ac.jbnu.coe.ui.more.activity_info"/>
+        <activity android:name="kr.ac.jbnu.coe.ui.more.activity_EULA"/>
+        <activity android:name="kr.ac.jbnu.coe.MainActivity"/>
+        <activity android:name=".ui.more.activity_logList"/>
     </application>
 
 </manifest>

@@ -1,6 +1,5 @@
 package kr.ac.jbnu.coe.ui.more
 
-import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem

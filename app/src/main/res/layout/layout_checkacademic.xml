@@ -86,7 +86,7 @@
                 android:drawablePadding="20dp"
                 android:hint = "학번"
                 android:inputType="textEmailAddress"
-                android:textColor = "#000000"
+                android:textColor = "@color/black"
                 android:fontFamily="@font/nanumsquare_bold"
                 android:background="@null"
                 android:textColorHint="#C83F51B5"
@@ -105,7 +105,7 @@
                 app:nb_text = "학생증 불러오기"
                 app:nb_borderColor="#C83F51B5"
                 app:nb_borderWidth="2dp"
-                app:nb_backgroundColor="#ffffff"
+                app:nb_backgroundColor="@color/white"
                 app:nb_focusColor="#C83F51B5"
                 app:nb_textColor="#C83F51B5"
                 app:nb_radius="10dp"
@@ -135,6 +135,61 @@
                 app:layout_constraintTop_toBottomOf="@id/btn_load"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:id = "@+id/txt_warning"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text = "학우님의 학생증은 별도로 저장하지 않습니다."
+                app:layout_constraintTop_toBottomOf="@id/btn_checkAcadmic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:fontFamily="@font/nanumsquare_bold"
+                android:textColor="#ff6161"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:textSize="15sp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#dbdbdb"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                app:layout_constraintTop_toBottomOf="@id/txt_warning"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text = "학우님의 학과가 없나요?"
+                    app:layout_constraintTop_toBottomOf="@id/btn_checkAcadmic"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:fontFamily="@font/nanumsquare_extrabold"
+                    android:textColor="#000000"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:textSize="20sp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text = "공과대학 학생회 SNS에 학생증과 함께 연락주시면, 대응해드리겠습니다!"
+                    app:layout_constraintTop_toBottomOf="@id/btn_checkAcadmic"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginBottom="20dp"
+
+                    android:fontFamily="@font/nanumsquare_bold"
+                    android:textColor="#000000"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:textSize="20sp"/>
+
+            </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

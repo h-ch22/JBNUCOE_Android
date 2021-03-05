@@ -4,15 +4,9 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Adapter
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners
-import com.bumptech.glide.request.RequestOptions
 import kr.ac.jbnu.coe.R
-import kr.ac.jbnu.coe.ui.notifications.noticeItem
 
 class pledgeListAdapter(val context : Context, val pledgeList : ArrayList<pledgeItem>, val itemClick : (pledgeItem) -> Unit) : RecyclerView.Adapter<pledgeListAdapter.Holder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {

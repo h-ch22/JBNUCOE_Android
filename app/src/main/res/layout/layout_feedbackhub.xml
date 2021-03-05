@@ -112,7 +112,7 @@
                 android:fontFamily="@font/nanumsquare_bold"
                 android:windowSoftInputMode="adjustResize|stateHidden"
                 android:hint="피드백의 제목을 입력해주세요."
-                android:textColor="#000000"
+                android:textColor="@color/black"
                 android:textColorHint="#C83F51B5" />
 
             <EditText
@@ -126,7 +126,7 @@
                 android:hint="학우님의 의견을 입력해주세요."
                 android:windowSoftInputMode="adjustResize|stateHidden"
                 android:inputType="text"
-                android:textColor="#000000"
+                android:textColor="@color/black"
                 android:textColorHint="#C83F51B5" />
 
             <com.royrodriguez.transitionbutton.TransitionButton

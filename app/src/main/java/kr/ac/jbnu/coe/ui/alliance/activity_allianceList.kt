@@ -105,7 +105,7 @@ class activity_allianceList : AppCompatActivity(){
         }
     }
 
-    fun getImage(storeName : String, benefit : String, isAvailable : String){
+    fun getImage(storeName : String, benefit : String, isAvailable : String, open : String, close : String){
         if(storeName != ""){
             val docRef = db.collection("Store").document("eng")
             docRef.get().addOnCompleteListener{task ->
@@ -114,7 +114,7 @@ class activity_allianceList : AppCompatActivity(){
 
                     if(document != null){
                         val downloadURL = storageReference.child( "storeLogo/"+document.get(storeName)+".png")
-                        allianceList.add(storeItem(img = downloadURL, title = storeName, benefit = benefit, isAvailable = isAvailable))
+                        allianceList.add(storeItem(img = downloadURL, title = storeName, benefit = benefit, isAvailable = isAvailable, open = open, close = close))
 
                         storeListAdapter = storeListAdapter(this, allianceList){
                             storeItem ->
@@ -153,38 +153,7 @@ class activity_allianceList : AppCompatActivity(){
                             isAvailable = "이용 시간을 알 수 없습니다."
                         }
 
-                        else{
-                            val sdf = SimpleDateFormat("yyyy.MM.dd")
-                            val sdf_time = SimpleDateFormat("HH:mm")
-                            val sdf_withTime = SimpleDateFormat("yyyy.MM.dd HH:mm")
-
-                            val today = sdf_withTime.format(Date())
-                            val today_date = sdf.format(Date())
-                            val openDate = today_date + " " + open
-                            var closeDate = today_date + " " + close
-                            Log.d("close", closeDate)
-                            Log.d("today", today)
-
-                            var close_fin = sdf_withTime.parse(closeDate)
-                            var open_fin = sdf_withTime.parse(openDate)
-
-                            if(close_fin.after(sdf_withTime.parse(today))){
-                                val today_tmp = Date()
-                                val tomorrow = Date(today_tmp.time + ( 1000 * 60 * 60 * 24 ))
-                                val tomorrow_str = sdf_withTime.format(tomorrow).toString()
-                                close_fin = sdf_withTime.parse(tomorrow_str)
-                            }
-
-                            if(sdf_withTime.parse(today).before(close_fin) && sdf_withTime.parse(today).after(open_fin)){
-                                isAvailable = "이용 가능"
-                            }
-
-                            else{
-                                isAvailable = "이용 불가"
-                            }
-                        }
-
-                        getImage(storeName = storeName, benefit = benefit, isAvailable = isAvailable)
+                        getImage(storeName = storeName, benefit = benefit, isAvailable = isAvailable, open = open, close = close)
                     }
                 }
             }

@@ -49,10 +49,22 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <ImageView
+                <LinearLayout
                     android:layout_width="350dp"
                     android:layout_height="250dp"
-                    android:src = "@drawable/img_council" />
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="175dp"
+                        android:layout_height="match_parent"
+                        android:src = "@drawable/img_shy"/>
+
+                    <ImageView
+                        android:layout_width="175dp"
+                        android:layout_height="match_parent"
+                        android:src = "@drawable/img_nh"/>
+
+                </LinearLayout>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -68,7 +80,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text = ""
+                    android:layout_marginVertical="20dp"
+                    android:text = "기획국은 공과대학의 모든 행사들을 책임지고 앞장서서 기획하는 국입니다!"
                     android:textSize="20sp"
                     android:textColor="#ffffff"
                     android:fontFamily="@font/nanumsquare_bold"/>
@@ -82,10 +95,22 @@
                     android:textColor="#ffffff"
                     android:fontFamily="@font/nanumpen"/>
 
-                <ImageView
+                <LinearLayout
                     android:layout_width="350dp"
                     android:layout_height="250dp"
-                    android:src = "@drawable/img_council" />
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="175dp"
+                        android:layout_height="match_parent"
+                        android:src = "@drawable/img_hj"/>
+
+                    <ImageView
+                        android:layout_width="175dp"
+                        android:layout_height="match_parent"
+                        android:src = "@drawable/img_jw"/>
+
+                </LinearLayout>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -101,8 +126,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text = ""
+                    android:text = "대외협력국은 지속적인 제휴업체 관리, 공과대학의 대외적인 활동의 관리 및 감독을 하는 국입니다!"
                     android:textSize="20sp"
+                    android:layout_marginVertical="10dp"
                     android:textColor="#ffffff"
                     android:fontFamily="@font/nanumsquare_bold"/>
 
@@ -115,10 +141,22 @@
                     android:textColor="#ffffff"
                     android:fontFamily="@font/nanumpen"/>
 
-                <ImageView
+                <LinearLayout
                     android:layout_width="350dp"
                     android:layout_height="250dp"
-                    android:src = "@drawable/img_council" />
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="175dp"
+                        android:layout_height="match_parent"
+                        android:src = "@drawable/img_hjy"/>
+
+                    <ImageView
+                        android:layout_width="175dp"
+                        android:layout_height="match_parent"
+                        android:src = "@drawable/img_sy"/>
+
+                </LinearLayout>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -134,7 +172,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text = ""
+                    android:text = "사무국은 공과대학 학생회의 모든 예산안 편성 및 학우님들의 소중한 학생회비를 총 관리 감독하는 국입니다!"
+                    android:layout_marginVertical="10dp"
                     android:textSize="20sp"
                     android:textColor="#ffffff"
                     android:fontFamily="@font/nanumsquare_bold"/>
@@ -148,10 +187,22 @@
                     android:textColor="#ffffff"
                     android:fontFamily="@font/nanumpen"/>
 
-                <ImageView
+                <LinearLayout
                     android:layout_width="350dp"
                     android:layout_height="250dp"
-                    android:src = "@drawable/img_council" />
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="175dp"
+                        android:layout_height="match_parent"
+                        android:src = "@drawable/img_bc"/>
+
+                    <ImageView
+                        android:layout_width="175dp"
+                        android:layout_height="match_parent"
+                        android:src = "@drawable/img_sh"/>
+
+                </LinearLayout>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -167,8 +218,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text = ""
+                    android:text = "시설복지국은 공과대학 학우님들의 편의와 복지, 모든 시설물들을 책임지는 국입니다!"
                     android:textSize="20sp"
+                    android:layout_marginVertical="10dp"
                     android:textColor="#ffffff"
                     android:fontFamily="@font/nanumsquare_bold"/>
 
@@ -181,10 +233,22 @@
                     android:textColor="#ffffff"
                     android:fontFamily="@font/nanumpen"/>
 
-                <ImageView
+                <LinearLayout
                     android:layout_width="350dp"
                     android:layout_height="250dp"
-                    android:src = "@drawable/img_council" />
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="175dp"
+                        android:layout_height="match_parent"
+                        android:src = "@drawable/img_ij"/>
+
+                    <ImageView
+                        android:layout_width="175dp"
+                        android:layout_height="match_parent"
+                        android:src = "@drawable/img_js"/>
+
+                </LinearLayout>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -200,7 +264,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text = ""
+                    android:text = "운영지원국은 공과대학 학생회에서 진행하는 행사 및 사업을 운영하는 국입니다!"
+                    android:layout_marginVertical="10dp"
                     android:textSize="20sp"
                     android:textColor="#ffffff"
                     android:fontFamily="@font/nanumsquare_bold"/>
@@ -214,10 +279,22 @@
                     android:textColor="#ffffff"
                     android:fontFamily="@font/nanumpen"/>
 
-                <ImageView
+                <LinearLayout
                     android:layout_width="350dp"
                     android:layout_height="250dp"
-                    android:src = "@drawable/img_council" />
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="175dp"
+                        android:layout_height="match_parent"
+                        android:src = "@drawable/img_sm"/>
+
+                    <ImageView
+                        android:layout_width="175dp"
+                        android:layout_height="match_parent"
+                        android:src = "@drawable/img_hh"/>
+
+                </LinearLayout>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -233,7 +310,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text = ""
+                    android:text = "정책국은 공과대학 학생회의 공약 이행을 총괄하고, 재정 감사를 담당하는 국입니다!"
+                    android:layout_marginVertical="10dp"
                     android:textSize="20sp"
                     android:textColor="#ffffff"
                     android:fontFamily="@font/nanumsquare_bold"/>
@@ -247,10 +325,22 @@
                     android:textColor="#ffffff"
                     android:fontFamily="@font/nanumpen"/>
 
-                <ImageView
+                <LinearLayout
                     android:layout_width="350dp"
                     android:layout_height="250dp"
-                    android:src = "@drawable/img_promote" />
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="175dp"
+                        android:layout_height="200dp"
+                        android:src = "@drawable/img_cj"/>
+
+                    <ImageView
+                        android:layout_width="175dp"
+                        android:layout_height="match_parent"
+                        android:src = "@drawable/img_hy"/>
+
+                </LinearLayout>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -265,10 +355,10 @@
                     android:id = "@+id/txt_promote"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginVertical="10dp"
                     android:gravity="center"
-                    android:text = ""
-                    android:textSize="15sp"
+                    android:text = "홍보국은 공과대학 SNS 관리, 각종 행사에 대한 홍보물을 총괄하여 담당하며, 행사 사진 및 영상을 촬영/편집하는 국입니다!\n또한, 공과대학 공식 애플리케이션의 개발 및 유지보수도 함께 진행하고 있습니다!"
+                    android:textSize="20sp"
                     android:textColor="#ffffff"
                     android:fontFamily="@font/nanumsquare_bold"/>
 
