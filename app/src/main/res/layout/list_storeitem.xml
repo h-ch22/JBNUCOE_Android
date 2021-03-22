@@ -46,12 +46,32 @@
             android:textSize="15sp"/>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="230dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:id = "@+id/status"
             android:text = ""
             android:textColor="#595959"
+            android:fontFamily="@font/nanumsquare_bold"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:layout_width="230dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:id = "@+id/breakTime"
+            android:text = ""
+            android:textColor="#ffb300"
+            android:fontFamily="@font/nanumsquare_bold"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:layout_width="230dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:id = "@+id/closed"
+            android:text = ""
+            android:textColor="#ff3b3b"
             android:fontFamily="@font/nanumsquare_bold"
             android:textSize="15sp"/>
 

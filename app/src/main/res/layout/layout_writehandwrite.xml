@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="#C83F51B5">
+
+    <androidx.appcompat.widget.Toolbar
+        app:layout_constraintTop_toTopOf="parent"
+        android:id = "@+id/toolbar"
+        android:background="@drawable/titlebar"
+        android:layout_width="match_parent"
+        android:theme = "@style/MyThemeOverlay_Toolbar2"
+        android:layout_height = "80dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id = "@+id/txt_title"
+            android:textSize="20sp"
+            android:text = "합격자 수기 작성하기"
+            android:textColor="#ffffff"
+            android:fontFamily="@font/nanumsquare_bold"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+            <EditText
+                android:id="@+id/field_title"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_gravity="center"
+                android:background="@null"
+                android:fontFamily="@font/nanumsquare_bold"
+                app:layout_constraintTop_toBottomOf="@id/toolbar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:windowSoftInputMode="adjustResize|stateHidden"
+                android:hint="제목을 입력해주세요."
+                android:textColor="#ffffffff"
+                android:textColorHint="#ffffffff" />
+
+            <EditText
+                android:id="@+id/field_contents"
+                android:layout_width="350dp"
+                android:layout_height="250dp"
+                android:layout_gravity="center"
+                android:background="@null"
+                android:fontFamily="@font/nanumsquare_bold"
+                android:hint="학우님의 합격 수기를 입력해주세요."
+                android:windowSoftInputMode="adjustResize|stateHidden"
+                android:inputType="textMultiLine"
+                android:scrollbars="vertical"
+                app:layout_constraintTop_toBottomOf="@id/field_title"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/toolbarLL"
+                android:textColor="#ffffffff"
+                android:textColorHint="#ffffffff" />
+
+
+
+
+    <LinearLayout
+        android:id = "@+id/toolbarLL"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id = "@+id/btn_camera"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_camera"
+            android:background="#00ffffff"
+            android:scaleType="fitXY"
+            android:padding="30dp"/>
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="100dp">
+
+            <LinearLayout
+                android:id = "@+id/imageLL"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+
+
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

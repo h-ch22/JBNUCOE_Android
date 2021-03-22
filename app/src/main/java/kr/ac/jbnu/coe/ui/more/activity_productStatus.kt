@@ -25,6 +25,8 @@ class activity_productStatus : AppCompatActivity(), View.OnClickListener{
     lateinit var txt_labcoatStatus : TextView
     lateinit var btn_checkLog : TransitionButton
     lateinit var toolbar : androidx.appcompat.widget.Toolbar
+    lateinit var txt_slipperStatus : TextView
+    lateinit var txt_uniformStatus : TextView
     val db = Firebase.firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,6 +41,8 @@ class activity_productStatus : AppCompatActivity(), View.OnClickListener{
         txt_labcoatStatus = findViewById(R.id.labcoat_status)
         btn_checkLog = findViewById(R.id.btn_checkLog)
         toolbar = findViewById(R.id.toolbar)
+        txt_slipperStatus = findViewById(R.id.slipper_status)
+        txt_uniformStatus = findViewById(R.id.uniform_status)
 
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -137,6 +141,8 @@ class activity_productStatus : AppCompatActivity(), View.OnClickListener{
         val umbrellaRef = db.collection("Products").document("umbrella")
         val labcoatRef = db.collection("Products").document("labcoat")
         val batteryRef = db.collection("Products").document("battery")
+        val uniformRef = db.collection("Products").document("uniform")
+        val slipperRef = db.collection("Products").document("slipper")
 
         calcRef.get().addOnCompleteListener{task ->
             if(task.isSuccessful){
@@ -148,8 +154,8 @@ class activity_productStatus : AppCompatActivity(), View.OnClickListener{
 
                     if(calcAll >= calcCurrent){
                         txt_calculatorStatus.text = "대여 가능 (" + calcCurrent + " / " + calcAll + ")"
-                        txt_calculatorStatus.setTextColor(Color.parseColor("#009630"))
                         txt_calculatorStatus?.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_check, 0, 0, 0)
+                        txt_calculatorStatus.setTextColor(Color.parseColor("#009630"))
                     }
 
                     if(calcCurrent == 0L){
@@ -233,6 +239,56 @@ class activity_productStatus : AppCompatActivity(), View.OnClickListener{
                         txt_batteryStatus?.setTextColor(Color.parseColor("#ff5145"))
                         txt_batteryStatus?.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_error, 0, 0, 0)
                         txt_batteryStatus?.compoundDrawables?.get(0)?.setTint(Color.parseColor("#ff5145"))
+                    }
+                }
+            }
+        }
+
+        uniformRef.get().addOnCompleteListener{task ->
+            if(task.isSuccessful){
+                val document = task.result
+
+                if(document.exists()){
+                    var uniformAll : Long = document.get("all") as Long
+                    var uniformCurrent : Long = document.get("late") as Long
+
+                    if(uniformAll >= uniformCurrent){
+                        txt_uniformStatus.text = "대여 가능 (" + uniformCurrent + " / " + uniformAll + ")"
+                        txt_uniformStatus.setTextColor(Color.parseColor("#009630"))
+                        txt_uniformStatus?.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_check, 0, 0, 0)
+                        txt_uniformStatus?.compoundDrawables?.get(0)?.setTint(Color.parseColor("#009630"))
+                    }
+
+                    if(uniformCurrent == 0L){
+                        txt_uniformStatus.text = "대여 불가"
+                        txt_uniformStatus?.setTextColor(Color.parseColor("#ff5145"))
+                        txt_uniformStatus?.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_error, 0, 0, 0)
+                        txt_uniformStatus?.compoundDrawables?.get(0)?.setTint(Color.parseColor("#ff5145"))
+                    }
+                }
+            }
+        }
+
+        slipperRef.get().addOnCompleteListener{task ->
+            if(task.isSuccessful){
+                val document = task.result
+
+                if(document.exists()){
+                    var slipperAll : Long = document.get("all") as Long
+                    var slipperCurrent : Long = document.get("late") as Long
+
+                    if(slipperAll >= slipperCurrent){
+                        txt_slipperStatus.text = "대여 가능 (" + slipperCurrent + " / " + slipperAll + ")"
+                        txt_slipperStatus.setTextColor(Color.parseColor("#009630"))
+                        txt_slipperStatus?.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_check, 0, 0, 0)
+                        txt_slipperStatus?.compoundDrawables?.get(0)?.setTint(Color.parseColor("#009630"))
+                    }
+
+                    if(slipperCurrent == 0L){
+                        txt_slipperStatus.text = "대여 불가"
+                        txt_slipperStatus?.setTextColor(Color.parseColor("#ff5145"))
+                        txt_slipperStatus?.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_error, 0, 0, 0)
+                        txt_slipperStatus?.compoundDrawables?.get(0)?.setTint(Color.parseColor("#ff5145"))
                     }
                 }
             }

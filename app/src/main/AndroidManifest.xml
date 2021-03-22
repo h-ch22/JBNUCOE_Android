@@ -13,6 +13,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.전북대학교공과대학">
+
+        <provider android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
         <activity
             android:name="kr.ac.jbnu.coe.UserManagement.activity_signIn"
             android:label="@string/app_name">
@@ -54,6 +64,11 @@
         <activity android:name="kr.ac.jbnu.coe.ui.more.activity_EULA"/>
         <activity android:name="kr.ac.jbnu.coe.MainActivity"/>
         <activity android:name=".ui.more.activity_logList"/>
+        <activity android:name=".ui.more.activity_calendar"/>
+        <activity android:name=".ui.handWriting.activity_handWriting"/>
+        <activity android:name=".ui.handWriting.activity_handWriting_write"/>
+        <activity android:name=".ui.handWriting.activity_handWritingDetails"/>
+        <activity android:name=".ui.handWriting.activity_handWriting_edit"/>
     </application>
 
 </manifest>

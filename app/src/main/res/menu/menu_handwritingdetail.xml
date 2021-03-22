@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<item
+        android:id="@+id/action_edit"
+        android:icon="@drawable/ic_pencil"
+        android:title="편집"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/action_recommend"
+        android:icon="@drawable/ic_thumb_up"
+        android:iconTint="#ffffff"
+        android:title="추천"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/action_delete"
+        android:icon="@drawable/ic_delete"
+        android:title="제거"
+        app:showAsAction="always"/>
+
+
+</menu>

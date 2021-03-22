@@ -75,6 +75,8 @@ class activity_logList : AppCompatActivity(){
         val calcRef = db.collection("Products").document("calculator").collection("Log")
         val labcoatRef = db.collection("Products").document("labcoat").collection("Log")
         val umbrellaRef = db.collection("Products").document("umbrella").collection("Log")
+        val slipperRef = db.collection("Products").document("slipper").collection("Log")
+        val uniformRef = db.collection("Products").document("uniform").collection("Log")
 
         batteryRef.get().addOnSuccessListener { result ->
             for(document in result){
@@ -108,25 +110,65 @@ class activity_logList : AppCompatActivity(){
                     }
 
                     umbrellaRef.get().addOnSuccessListener { result ->
-                        for(document in result){
+                        for (document in result) {
                             val studentNo_doc = document.get("studentNo").toString()
 
-                            if(studentNo_doc.equals(studentNo)){
-                                logList.add(logItem(productName = "우산", date = document.id, returned = document.get("returned") as Boolean, num = document.get("number") as String))
+                            if (studentNo_doc.equals(studentNo)) {
+                                logList.add(
+                                        logItem(
+                                                productName = "우산",
+                                                date = document.id,
+                                                returned = document.get("returned") as Boolean,
+                                                num = document.get("number") as String
+                                        )
+                                )
                             }
                         }
 
-                        logList.sortByDescending { it.date }
+                        slipperRef.get().addOnSuccessListener { result ->
+                            for (document in result) {
+                                val studentNo_doc = document.get("studentNo").toString()
 
-                        logListAdapter = logAdapter(applicationContext, logList)
+                                if (studentNo_doc.equals(studentNo)) {
+                                    logList.add(
+                                            logItem(
+                                                    productName = "슬리퍼",
+                                                    date = document.id,
+                                                    returned = document.get("returned") as Boolean,
+                                                    num = document.get("number") as String
+                                            )
+                                    )
+                                }
+                            }
+
+                            uniformRef.get().addOnSuccessListener { result ->
+                                for (document in result) {
+                                    val studentNo_doc = document.get("studentNo").toString()
+
+                                    if (studentNo_doc.equals(studentNo)) {
+                                        logList.add(
+                                                logItem(
+                                                        productName = "유니폼",
+                                                        date = document.id,
+                                                        returned = document.get("returned") as Boolean,
+                                                        num = document.get("number") as String
+                                                )
+                                        )
+                                    }
+                                }
+
+                                logList.sortByDescending { it.date }
+
+                                logListAdapter = logAdapter(applicationContext, logList)
 
 
-                        logListView.adapter = logListAdapter
+                                logListView.adapter = logListAdapter
 
-                        val layoutManager = LinearLayoutManager(applicationContext)
-                        logListView.layoutManager = layoutManager
-                        logListView.setHasFixedSize(true)
-
+                                val layoutManager = LinearLayoutManager(applicationContext)
+                                logListView.layoutManager = layoutManager
+                                logListView.setHasFixedSize(true)
+                            }
+                        }
                     }
                 }
             }

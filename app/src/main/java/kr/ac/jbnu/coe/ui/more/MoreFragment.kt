@@ -4,8 +4,12 @@ import android.app.Activity
 import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
+import android.content.ContentResolver
 import android.content.SharedPreferences
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.graphics.Color
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -33,6 +37,8 @@ import com.royrodriguez.transitionbutton.TransitionButton
 import kr.ac.jbnu.coe.MainActivity
 import kr.ac.jbnu.coe.R
 import kr.ac.jbnu.coe.UserManagement.activity_signIn
+import kr.ac.jbnu.coe.ui.handWriting.activity_handWriting
+import java.io.InputStream
 
 class MoreFragment : Fragment(), View.OnClickListener {
     lateinit var img_profile : ImageView
@@ -46,13 +52,15 @@ class MoreFragment : Fragment(), View.OnClickListener {
     lateinit var btn_product : TransitionButton
     lateinit var btn_signOut : TransitionButton
     lateinit var btn_secession : TransitionButton
+    lateinit var btn_handWriting : TransitionButton
     lateinit var btn_info : TransitionButton
     lateinit var mContext : Context
     lateinit var downloadURL : StorageReference
     lateinit var auto : SharedPreferences
     lateinit var autoSignIn : SharedPreferences.Editor
     lateinit var txt_studentNo : TextView
-
+    var uri : Uri? = null
+    val Gallery = 0
     val email = Firebase.auth.currentUser?.email.toString()
     val db = Firebase.firestore
     val storageReference = FirebaseStorage.getInstance().reference
@@ -79,6 +87,7 @@ class MoreFragment : Fragment(), View.OnClickListener {
         btn_secession = root.findViewById(R.id.btn_secsession)
         btn_info = root.findViewById(R.id.btn_info)
         txt_studentNo = root.findViewById(R.id.txt_studentNo)
+        btn_handWriting = root.findViewById(R.id.btn_handwriting)
 
         getData()
 
@@ -90,6 +99,7 @@ class MoreFragment : Fragment(), View.OnClickListener {
         btn_signOut.setOnClickListener(this)
         btn_secession.setOnClickListener(this)
         btn_info.setOnClickListener(this)
+        btn_handWriting.setOnClickListener(this)
 
         return root
     }
@@ -102,26 +112,40 @@ class MoreFragment : Fragment(), View.OnClickListener {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        val images = ImagePicker.getImages(data)
+        super.onActivityResult(requestCode, resultCode, data)
 
-        if(images != null && images.isNotEmpty()){
-            val file = images[0].uri
+        if(requestCode == Gallery){
+            if(resultCode == Activity.RESULT_OK){
+                uri = data?.data
 
-            val profileRef = storageReference.child("profile/" + email + "/profile_" + email + ".jpg")
-            val upload = profileRef.putFile(file)
+                try{
+                    if(uri != null){
+                        val file = uri
 
-            upload.addOnFailureListener{
-                btn_changeProfile.stopAnimation(TransitionButton.StopAnimationStyle.SHAKE, null)
-                showDialog(title = "업로드 실패", contents = "프로필 이미지 업로드 중 오류가 발생했습니다.\n네트워크 상태를 확인한 후 다시 시도하십시오.\n" + it)
+                        val profileRef = storageReference.child("profile/" + email + "/profile_" + email + ".jpg")
+                        val upload = file?.let { profileRef.putFile(it) }
 
-            }.addOnSuccessListener { taskSnapshot ->
-                btn_changeProfile.stopAnimation(TransitionButton.StopAnimationStyle.SHAKE, null)
-                Toast.makeText(mContext, "정상 처리 되었습니다.", Toast.LENGTH_SHORT).show()
+                        if (upload != null) {
+                            upload.addOnFailureListener{
+                                btn_changeProfile.stopAnimation(TransitionButton.StopAnimationStyle.SHAKE, null)
+                                showDialog(title = "업로드 실패", contents = "프로필 이미지 업로드 중 오류가 발생했습니다.\n네트워크 상태를 확인한 후 다시 시도하십시오.\n" + it)
 
-                val ft = fragmentManager?.beginTransaction()
-                ft?.detach(this)?.attach(this)?.commit()
+                            }.addOnSuccessListener { taskSnapshot ->
+                                btn_changeProfile.stopAnimation(TransitionButton.StopAnimationStyle.SHAKE, null)
+                                Toast.makeText(mContext, "정상 처리 되었습니다.", Toast.LENGTH_SHORT).show()
+
+                                val ft = fragmentManager?.beginTransaction()
+                                ft?.detach(this)?.attach(this)?.commit()
+                            }
+                        }
+                    }
+                }   catch(e:Exception){
+                    e.printStackTrace()
+                }
             }
         }
+
+
     }
 
     fun getData(){
@@ -169,16 +193,11 @@ class MoreFragment : Fragment(), View.OnClickListener {
     }
 
     fun changeProfile(){
-        ImagePicker.create(this)
-                .returnMode(ReturnMode.ALL)
-                .folderMode(true)
-                .toolbarFolderTitle("폴더 선택")
-                .toolbarImageTitle("변경할 이미지를 선택하세요.")
-                .toolbarArrowColor(Color.BLACK)
-                .includeVideo(false)
-                .single()
-                .showCamera(true)
-                .start()
+        val intent = Intent()
+        intent.type = "image/*"
+        intent.action = Intent.ACTION_GET_CONTENT
+
+        startActivityForResult(Intent.createChooser(intent, "이미지 로드"), Gallery)
     }
 
     override fun onClick(v: View?) {
@@ -210,6 +229,11 @@ class MoreFragment : Fragment(), View.OnClickListener {
 
             if(v.id == R.id.btn_info){
                 val intent = Intent(mContext, activity_info::class.java)
+                startActivity(intent)
+            }
+
+            if(v.id == R.id.btn_handwriting){
+                val intent = Intent(mContext, activity_handWriting::class.java)
                 startActivity(intent)
             }
 

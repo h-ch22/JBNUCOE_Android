@@ -105,7 +105,7 @@ class activity_allianceList : AppCompatActivity(){
         }
     }
 
-    fun getImage(storeName : String, benefit : String, isAvailable : String, open : String, close : String){
+    fun getImage(storeName : String, benefit : String, isAvailable : String, open : String, close : String, breakTime : String, closed : String){
         if(storeName != ""){
             val docRef = db.collection("Store").document("eng")
             docRef.get().addOnCompleteListener{task ->
@@ -114,7 +114,7 @@ class activity_allianceList : AppCompatActivity(){
 
                     if(document != null){
                         val downloadURL = storageReference.child( "storeLogo/"+document.get(storeName)+".png")
-                        allianceList.add(storeItem(img = downloadURL, title = storeName, benefit = benefit, isAvailable = isAvailable, open = open, close = close))
+                        allianceList.add(storeItem(img = downloadURL, title = storeName, benefit = benefit, isAvailable = isAvailable, open = open, close = close, breakTime = breakTime, closed = closed))
 
                         storeListAdapter = storeListAdapter(this, allianceList){
                             storeItem ->
@@ -148,12 +148,14 @@ class activity_allianceList : AppCompatActivity(){
                         var isAvailable = ""
                         val open = document.get("open").toString()
                         val close = document.get("close").toString()
+                        val breakTime = document.get("break").toString()
+                        val closed = document.get("closed").toString()
 
                         if(open.equals("unknown") || close.equals("unknown")){
                             isAvailable = "이용 시간을 알 수 없습니다."
                         }
 
-                        getImage(storeName = storeName, benefit = benefit, isAvailable = isAvailable, open = open, close = close)
+                        getImage(storeName = storeName, benefit = benefit, isAvailable = isAvailable, open = open, close = close, breakTime = breakTime, closed = closed)
                     }
                 }
             }

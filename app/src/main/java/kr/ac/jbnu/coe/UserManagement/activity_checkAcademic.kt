@@ -1,10 +1,15 @@
 package kr.ac.jbnu.coe.UserManagement
 
+import android.app.Activity
+import android.content.ContentResolver
 import android.content.DialogInterface
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.util.Log
 import android.view.View
 import android.widget.*
@@ -25,6 +30,7 @@ import com.royrodriguez.transitionbutton.TransitionButton
 import kr.ac.jbnu.coe.MainActivity
 import kr.ac.jbnu.coe.R
 import java.io.IOException
+import java.io.InputStream
 
 class activity_checkAcademic : AppCompatActivity(), View.OnClickListener{
     var email = ""
@@ -39,6 +45,7 @@ class activity_checkAcademic : AppCompatActivity(), View.OnClickListener{
     var btn_load : NoboButton? = null
     var img : ImageView? = null
     var uri : Uri? = null
+    val Gallery = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -83,13 +90,18 @@ class activity_checkAcademic : AppCompatActivity(), View.OnClickListener{
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        val images = ImagePicker.getImages(data)
+        if(requestCode == Gallery){
+            if(resultCode == Activity.RESULT_OK){
+                uri = data?.data
 
-        if(images != null && images.isNotEmpty()){
-            img?.let { Glide.with(it).load(images[0].uri).into(it) }
-            img?.visibility = View.VISIBLE
-
-            uri = images[0].uri
+                try{
+                    val inputStream : InputStream? = uri?.let { contentResolver.openInputStream(it) }
+                    val bitmap : Bitmap = BitmapFactory.decodeStream(inputStream)
+                    img?.setImageBitmap(bitmap)
+                }   catch(e:Exception){
+                    e.printStackTrace()
+                }
+            }
         }
     }
 
@@ -106,16 +118,11 @@ class activity_checkAcademic : AppCompatActivity(), View.OnClickListener{
                 })
 
                 dlg.setNegativeButton("갤러리", DialogInterface.OnClickListener{dialog, which ->
-                    ImagePicker.create(this)
-                            .returnMode(ReturnMode.ALL)
-                            .folderMode(true)
-                            .toolbarFolderTitle("폴더 선택")
-                            .toolbarImageTitle("학생증을 선택하세요.")
-                            .toolbarArrowColor(Color.BLACK)
-                            .includeVideo(false)
-                            .single()
-                            .showCamera(false)
-                            .start()
+                    val intent = Intent()
+                    intent.type = "image/*"
+                    intent.action = Intent.ACTION_GET_CONTENT
+
+                    startActivityForResult(Intent.createChooser(intent, "이미지 로드"), Gallery)
                 })
 
                 dlg.show()
