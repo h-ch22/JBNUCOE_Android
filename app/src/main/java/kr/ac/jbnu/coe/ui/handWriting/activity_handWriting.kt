@@ -8,6 +8,7 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.PopupMenu
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.ktx.firestore
@@ -22,6 +23,7 @@ class activity_handWriting : AppCompatActivity(){
     lateinit var handWritingListView : RecyclerView
     lateinit var handWritingListAdapter : handWritingListAdapter
     var handWritingList = arrayListOf<handWritingItem>()
+    lateinit var searchBar : SearchView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,12 +31,28 @@ class activity_handWriting : AppCompatActivity(){
 
         toolbar = findViewById(R.id.toolbar)
         handWritingListView = findViewById(R.id.handWritingList)
+        searchBar = findViewById(R.id.search_view)
 
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowTitleEnabled(false)
 
         getData()
+
+        searchBar.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                handWritingListAdapter.filter.filter(query)
+
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                handWritingListAdapter.filter.filter(newText)
+
+                return false
+            }
+
+        })
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -113,14 +131,14 @@ class activity_handWriting : AppCompatActivity(){
                 val author = document.get("author").toString()
                 val read = document.get("read").toString()
                 val recommend = document.get("recommend").toString()
-
-                handWritingList.add(handWritingItem(title = document.id, recommend = recommend, read = read, dateTime = dateTime, name = author))
+                val title = document.get("title").toString()
+                handWritingList.add(handWritingItem(title = title, recommend = recommend, read = read, dateTime = dateTime, name = author, docId = document.id))
 
                 handWritingListAdapter = handWritingListAdapter(this, handWritingList){
                     handWritingItem ->
                     val intent = Intent(applicationContext, activity_handWritingDetails::class.java)
                     intent.putExtra("handWritingTitle", handWritingItem.title)
-
+                    intent.putExtra("docId", handWritingItem.docId)
                     startActivity(intent)
                 }
 

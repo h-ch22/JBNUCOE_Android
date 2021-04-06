@@ -25,6 +25,7 @@
                 android:layout_height="wrap_content"
                 android:id = "@+id/txt_title"
                 android:textSize="20sp"
+                android:layout_marginBottom="10dp"
                 android:text = "실시간 공약 이행률 확인"
                 android:textColor="#ffffff"
                 android:fontFamily="@font/nanumsquare_bold"/>
@@ -95,11 +96,23 @@
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:id = "@+id/pledgeList"
+        android:layout_marginTop="80dp"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_below= "@id/progressLL"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/progressLL"/>
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_rounded"
+        app:layout_constraintTop_toBottomOf="@id/progressLL"
+        android:backgroundTint="#ffffff"
+        android:layout_margin="10dp"
+        app:iconifiedByDefault="false"
+        app:queryHint="공약 사항 검색" />
 
     <FrameLayout
         android:id = "@+id/progressLL"

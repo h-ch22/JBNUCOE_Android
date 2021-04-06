@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -25,6 +26,7 @@ class NoticeFragment : Fragment(){
     val db = Firebase.firestore
     val storageReference = FirebaseStorage.getInstance().reference
     lateinit var mContext : Context
+    lateinit var searchView: SearchView
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -33,6 +35,7 @@ class NoticeFragment : Fragment(){
     ): View? {
         val root = inflater.inflate(R.layout.fragment_notice, container, false)
 
+        searchView = root.findViewById(R.id.search_view)
         noticeListView = root.findViewById(R.id.noticeList)
         getData()
 
@@ -49,10 +52,10 @@ class NoticeFragment : Fragment(){
             for(document in result){
                 val dateTime = document.get("timeStamp").toString()
                 val index = document.get("index").toString()
+                val read = document.get("read").toString()
                 val title = document.id
-                val downloadURL = storageReference.child( "notice/"+index+".png")
                 val format = DateTimeFormatter.ofPattern("yyyy. MM. dd. HH:mm")
-                noticeList.add(noticeItem(title = title, date = dateTime, img = downloadURL))
+                noticeList.add(noticeItem(title = title, date = dateTime, read = read))
 
 
             }
@@ -64,7 +67,6 @@ class NoticeFragment : Fragment(){
                 val intent = Intent(mContext, activity_noticeDetail::class.java)
                 intent.putExtra("noticeTitle", noticeItem.title)
                 intent.putExtra("dateTime", noticeItem.date)
-                intent.putExtra("image", noticeItem.img.toString())
 
                 startActivity(intent)
             }
@@ -75,9 +77,21 @@ class NoticeFragment : Fragment(){
             val layoutManager = LinearLayoutManager(mContext)
             noticeListView.layoutManager = layoutManager
             noticeListView.setHasFixedSize(true)
+            searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    noticeListAdapter.filter.filter(query)
 
-            print(noticeList)
-            println(noticeList.toString())
+                    return false
+                }
+
+                override fun onQueryTextChange(newText: String?): Boolean {
+                    noticeListAdapter.filter.filter(newText)
+
+                    return false
+                }
+
+            })
+
         }
     }
 

@@ -11,6 +11,8 @@ import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.rd.PageIndicatorView
 import kr.ac.jbnu.coe.R
 import java.util.*
@@ -20,7 +22,7 @@ import kotlin.concurrent.timer
 class AllianceFragment : Fragment(), View.OnClickListener {
     private var pagerAdapter: PagerAdapter? = null
     private var currentPage : Int = 1
-
+    lateinit var pager : ViewPager
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
@@ -28,17 +30,17 @@ class AllianceFragment : Fragment(), View.OnClickListener {
     ): View? {
         val root = inflater.inflate(R.layout.fragment_alliance, container, false)
         val indicator: PageIndicatorView = root.findViewById(R.id.pageIndicatorView)
-        val pager: ViewPager = root.findViewById(R.id.viewPager)
         val btn_all : ImageButton = root.findViewById(R.id.btn_all)
         val btn_meal : ImageButton = root.findViewById(R.id.btn_meal)
         val btn_soup : ImageButton = root.findViewById(R.id.btn_sports)
         val btn_cafe : ImageButton = root.findViewById(R.id.btn_cafe)
         val btn_convenience : ImageButton = root.findViewById(R.id.btn_convenience)
         val btn_alcohol : ImageButton = root.findViewById(R.id.btn_alcohol)
-
+        val btn_details : ImageButton = root.findViewById(R.id.btn_details)
         val dpValue = 16
         val d = resources.displayMetrics.density
         val margin = (dpValue * d)
+        pager = root.findViewById(R.id.viewPager)
 
         pager.setPadding(margin.toInt(), 0, margin.toInt(), 0)
         pagerAdapter = PagerAdapter(context)
@@ -79,7 +81,7 @@ class AllianceFragment : Fragment(), View.OnClickListener {
         btn_alcohol.setOnClickListener(this)
         btn_convenience.setOnClickListener(this)
         btn_cafe.setOnClickListener(this)
-
+        btn_details.setOnClickListener(this)
         return root
     }
 
@@ -125,6 +127,45 @@ class AllianceFragment : Fragment(), View.OnClickListener {
                 intent.putExtra("category", "Convenience")
                 intent.putExtra("categoryKR", "편의")
                 startActivity(intent)
+            }
+
+            if(v.id == R.id.btn_details){
+                val db = Firebase.firestore
+                val docRef = db.collection("Ad").document(pager.currentItem.toString())
+
+                docRef.get().addOnCompleteListener { task ->
+                    if(task.isSuccessful){
+                        val document = task.result
+
+                        if(document.exists()){
+                            val category = document.get("category").toString()
+                            val storeName = document.get("storeName").toString()
+
+                            val benefitRef = db.collection("Coalition").document(category)
+                            benefitRef.get().addOnCompleteListener{task ->
+                                if(task.isSuccessful){
+                                    val document = task.result
+
+                                    if(document != null){
+                                        val storeMap : MutableMap<String, Any>? = document.data
+
+                                        if (storeMap != null) {
+                                            val value = storeMap.get(key = storeName)
+                                            val value_split = value.toString().split("{benefits=")
+                                            val value_fin = value_split[1].split("}")
+
+                                            val intent = Intent(activity, activity_storeDetail::class.java)
+                                            intent.putExtra("storeName", storeName)
+                                            intent.putExtra("benefit", value_fin[0])
+
+                                            startActivity(intent)
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }

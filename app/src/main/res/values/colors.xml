@@ -9,9 +9,15 @@
     <color name="white">#FFFFFFFF</color>
     <color name = "transparent">#00000000</color>
     <color name="colorGray">#E6E6E6</color>
-
+    <color name="calendar_page_bg_color">#0E0E0E</color>
+    <color name="calendar_item_view_bg_color">#1B1B1B</color>
+    <color name="calendar_toolbar_color">#282828</color>
+    <color name="calendar_text_grey">#bdbdbd</color>
+    <color name="calendar_text_grey_light">#616161</color>
     <color name="colorOrange">#FFC108</color>
     <color name="colorBlue">#16C3D2</color>
     <color name="colorRed">#D92D41</color>
     <color name="colorPurple">#778CF0</color>
+    <color name="brown_700">#5D4037</color>
+    <color name="blue_grey_700">#455A64</color>
 </resources>

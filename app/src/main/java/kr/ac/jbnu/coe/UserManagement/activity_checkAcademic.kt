@@ -174,28 +174,32 @@ class activity_checkAcademic : AppCompatActivity(), View.OnClickListener{
                     for(block in firebaseVisionText.textBlocks){
                         val boundingBox = block.boundingBox
                         val cornerPoints = block.cornerPoints
-                        val text = block.text
 
                         for(line in block.lines){
-                            var lineText = line.getText().replace("\\s".toRegex(), "")
-                            Log.d("line", lineText)
+                            var lineText = block.text.replace("\\s".toRegex(), "")
+                            var lineText_fin = lineText.replace("\n", "")
 
-                            if(lineText.equals(name)){
+                            Log.d("line", lineText_fin)
+
+                            val txt = block.text
+
+                            if(lineText_fin.equals(name)){
                                 isNamePassed = true
                             }
 
-                            if(lineText.contains(dept)){
+                            if(lineText_fin.contains(dept)){
                                 isDeptPassed = true
                             }
 
-                            if(lineText.contains(studentNo)){
+                            if(lineText_fin.contains(studentNo)){
                                 isStudentNoPassed = true
                             }
 
-                            if(lineText.equals("교육/부속기관")){
+                            if(lineText_fin.equals("교육/부속기관")){
                                 isCheckPassed = true
                             }
                         }
+
                     }
 
                     if(isCheckPassed && isDeptPassed && isNamePassed && isStudentNoPassed){

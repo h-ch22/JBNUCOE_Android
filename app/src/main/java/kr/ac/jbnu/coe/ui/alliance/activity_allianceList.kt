@@ -9,6 +9,7 @@ import android.view.MenuItem
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.ktx.firestore
@@ -27,6 +28,7 @@ class activity_allianceList : AppCompatActivity(){
     var storeNameList = ArrayList<String>()
     lateinit var category : String
     lateinit var categoryKR : String
+    lateinit var searchBar : SearchView
     lateinit var title : TextView
     val db = Firebase.firestore
     val storageReference = FirebaseStorage.getInstance().reference
@@ -43,11 +45,27 @@ class activity_allianceList : AppCompatActivity(){
         storeList = findViewById(R.id.storeList)
         title = findViewById(R.id.txt_title)
         toolbar = findViewById(R.id.toolbar)
+        searchBar = findViewById(R.id.search_view)
 
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowTitleEnabled(false)
         title.text = categoryKR
+
+        searchBar.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                storeListAdapter.filter.filter(query)
+
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                storeListAdapter.filter.filter(newText)
+
+                return false
+            }
+
+        })
     }
 
     fun getData(){

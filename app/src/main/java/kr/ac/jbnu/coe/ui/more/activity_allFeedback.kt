@@ -45,6 +45,9 @@ class activity_allFeedback : AppCompatActivity() {
                     feedbackItem(feedbackTitle = title, author = author, date = dateTime, type = type, category = category)
                 )
 
+
+                feedbackList.sortByDescending { it.date }
+
                 feedbackListAdapter = feedbackListAdapter(this, feedbackList){
                         feedbackItem ->
                     val intent = Intent(this, activity_feedbackDetail::class.java)

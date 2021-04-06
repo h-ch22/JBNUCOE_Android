@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.ktx.firestore
@@ -30,6 +31,7 @@ class activity_percentage : AppCompatActivity(), View.OnClickListener{
     var pledgeList = ArrayList<String>()
     var pledgeItemList = ArrayList<pledgeItem>()
     var implementedCnt = 0
+    lateinit var searchBar : SearchView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,6 +46,7 @@ class activity_percentage : AppCompatActivity(), View.OnClickListener{
         btn_culture = findViewById(R.id.btn_culture)
         btn_learning = findViewById(R.id.btn_learning)
         pledgeListView = findViewById(R.id.pledgeList)
+        searchBar = findViewById(R.id.search_view)
 
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -56,6 +59,21 @@ class activity_percentage : AppCompatActivity(), View.OnClickListener{
         btn_learning.setOnClickListener(this)
 
         getPledgeList()
+
+        searchBar.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                pledgeListAdapter.filter.filter(query)
+
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                pledgeListAdapter.filter.filter(newText)
+
+                return false
+            }
+
+        })
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

@@ -125,7 +125,8 @@
                 android:fontFamily="@font/nanumsquare_bold"
                 android:hint="학우님의 의견을 입력해주세요."
                 android:windowSoftInputMode="adjustResize|stateHidden"
-                android:inputType="text"
+                android:inputType="textMultiLine"
+                android:scrollbars="vertical"
                 android:textColor="@color/black"
                 android:textColorHint="#C83F51B5" />
 

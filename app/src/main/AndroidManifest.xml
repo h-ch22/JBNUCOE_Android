@@ -51,7 +51,8 @@
         <activity android:name="kr.ac.jbnu.coe.ui.more.activity_introduce"/>
         <activity android:name="kr.ac.jbnu.coe.ui.more.activity_introduceDept"/>
         <activity android:name="kr.ac.jbnu.coe.ui.more.activity_campusMap"/>
-        <activity android:name="kr.ac.jbnu.coe.ui.more.activity_feedbackHubMain"/>
+        <activity android:name="kr.ac.jbnu.coe.ui.more.activity_feedbackHubMain"
+            android:windowSoftInputMode="adjustPan|adjustResize"/>
         <activity android:name="kr.ac.jbnu.coe.ui.more.activity_allFeedback"/>
         <activity android:name="kr.ac.jbnu.coe.ui.more.activity_feedbackDetail"/>
         <activity android:name="kr.ac.jbnu.coe.ui.sports.activity_sportsDetail"/>
@@ -64,11 +65,11 @@
         <activity android:name="kr.ac.jbnu.coe.ui.more.activity_EULA"/>
         <activity android:name="kr.ac.jbnu.coe.MainActivity"/>
         <activity android:name=".ui.more.activity_logList"/>
-        <activity android:name=".ui.more.activity_calendar"/>
         <activity android:name=".ui.handWriting.activity_handWriting"/>
         <activity android:name=".ui.handWriting.activity_handWriting_write"/>
         <activity android:name=".ui.handWriting.activity_handWritingDetails"/>
         <activity android:name=".ui.handWriting.activity_handWriting_edit"/>
+        <activity android:name=".activity_singleImageView"/>
     </application>
 
 </manifest>

@@ -164,20 +164,20 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/btn_introduce" />
 
-            <com.royrodriguez.transitionbutton.TransitionButton
-                android:id = "@+id/btn_calendar"
-                android:layout_width="300dp"
-                android:layout_height="60dp"
-                android:layout_marginTop="20dp"
-                android:text = "취업 캘린더"
-                android:textColor="#000000"
-                android:fontFamily="@font/nanumsquare_bold"
-                android:padding="20dp"
-                android:drawableStart="@drawable/ic_calendar"
-                app:defaultColor="#ffffff"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/btn_checkLate" />
+<!--            <com.royrodriguez.transitionbutton.TransitionButton-->
+<!--                android:id = "@+id/btn_calendar"-->
+<!--                android:layout_width="300dp"-->
+<!--                android:layout_height="60dp"-->
+<!--                android:layout_marginTop="20dp"-->
+<!--                android:text = "취업 캘린더"-->
+<!--                android:textColor="#000000"-->
+<!--                android:fontFamily="@font/nanumsquare_bold"-->
+<!--                android:padding="20dp"-->
+<!--                android:drawableStart="@drawable/ic_calendar"-->
+<!--                app:defaultColor="#ffffff"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/btn_checkLate" />-->
 
             <com.royrodriguez.transitionbutton.TransitionButton
                 android:id = "@+id/btn_handwriting"
@@ -192,7 +192,7 @@
                 app:defaultColor="#ffffff"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/btn_calendar" />
+                app:layout_constraintTop_toBottomOf="@id/btn_checkLate" />
 
             <com.royrodriguez.transitionbutton.TransitionButton
                 android:id = "@+id/btn_campusmap"
@@ -207,7 +207,7 @@
                 app:defaultColor="#ffffff"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/btn_checkLate" />
+                app:layout_constraintTop_toBottomOf="@id/btn_handwriting" />
 
             <com.royrodriguez.transitionbutton.TransitionButton
                 android:id = "@+id/btn_feedbackHub"

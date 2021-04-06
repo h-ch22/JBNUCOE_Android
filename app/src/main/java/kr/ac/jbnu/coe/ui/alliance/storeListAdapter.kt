@@ -6,6 +6,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Filter
+import android.widget.Filterable
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -13,19 +15,26 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import kr.ac.jbnu.coe.R
+import kr.ac.jbnu.coe.ui.notifications.noticeItem
 
-class storeListAdapter(val context : Context, val storeList : ArrayList<storeItem>, val itemClick : (storeItem) -> Unit) : RecyclerView.Adapter<storeListAdapter.Holder>(){
+class storeListAdapter(val context : Context, val storeList : ArrayList<storeItem>, val itemClick : (storeItem) -> Unit) : RecyclerView.Adapter<storeListAdapter.Holder>(), Filterable {
+    var filteredList : ArrayList<storeItem>? = null
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val view = LayoutInflater.from(context).inflate(R.layout.list_storeitem, parent, false)
         return Holder(view, itemClick)
     }
 
+    init{
+        filteredList = storeList
+    }
+
     override fun getItemCount(): Int {
-        return storeList.size
+        return filteredList!!.size
     }
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
-        holder?.bind(storeList[position], context)
+        holder?.bind(filteredList!![position], context)
     }
 
     inner class Holder(itemView: View?, itemClick: (storeItem) -> Unit) : RecyclerView.ViewHolder(itemView!!){
@@ -80,6 +89,35 @@ class storeListAdapter(val context : Context, val storeList : ArrayList<storeIte
 
             else{
                 closed?.visibility = View.GONE
+            }
+        }
+    }
+
+    override fun getFilter(): Filter {
+        return object : Filter() {
+            override fun performFiltering(charSequence: CharSequence): FilterResults {
+                val charString = charSequence.toString()
+                if (charString.isEmpty()) {
+                    filteredList = storeList
+                } else {
+                    val filteringList = ArrayList<storeItem>()
+
+                    for (row in storeList) {
+                        if (row.title.toLowerCase().contains(charString.toLowerCase()) || row.benefit.toLowerCase().contains(charString.toLowerCase())) {
+                            filteringList.add(row)
+                        }
+                    }
+
+                    filteredList = filteringList
+                }
+                val filterResults = FilterResults()
+                filterResults.values = filteredList
+                return filterResults
+            }
+
+            override fun publishResults(charSequence: CharSequence, filterResults: FilterResults) {
+                filteredList = filterResults.values as ArrayList<storeItem>
+                notifyDataSetChanged()
             }
         }
     }

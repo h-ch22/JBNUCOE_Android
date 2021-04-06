@@ -4,6 +4,7 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.view.WindowManager
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.EditText
@@ -38,6 +39,7 @@ class activity_feedbackHubMain : AppCompatActivity(), View.OnClickListener{
         super.onCreate(savedInstanceState)
         setContentView(R.layout.layout_feedbackhub)
 
+        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
         typeSpinner = findViewById(R.id.spinner_type)
         categorySpinner = findViewById(R.id.spinner_category)
         field_feedback = findViewById(R.id.field_feedback)

@@ -1,10 +1,14 @@
 package kr.ac.jbnu.coe.ui.handWriting
 
 import android.app.Activity
+import android.app.DatePickerDialog
+import android.app.TimePickerDialog
 import android.content.*
 import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
@@ -21,12 +25,17 @@ import kr.ac.jbnu.coe.R
 import java.text.SimpleDateFormat
 import java.util.*
 
-class activity_handWriting_write : AppCompatActivity(), View.OnClickListener{
+class activity_handWriting_write : AppCompatActivity(), View.OnClickListener, DatePickerDialog.OnDateSetListener{
     val db = Firebase.firestore
     lateinit var toolbar : androidx.appcompat.widget.Toolbar
-    lateinit var txt_title : TextView
-    lateinit var txt_contents : TextView
-    lateinit var btn_camera : ImageView
+    lateinit var txt_title : EditText
+    lateinit var txt_contents : EditText
+    lateinit var btn_camera : ImageButton
+    lateinit var field_name : EditText
+    lateinit var field_term : EditText
+    lateinit var field_date : EditText
+    lateinit var field_howTO : EditText
+    lateinit var field_meter : EditText
     lateinit var imageLL : LinearLayout
     val Gallery = 0
     var uriArray = arrayListOf<Uri>()
@@ -38,6 +47,10 @@ class activity_handWriting_write : AppCompatActivity(), View.OnClickListener{
     lateinit var phone : String
     val storageReference = FirebaseStorage.getInstance().reference
     val id = java.util.UUID.randomUUID().toString()
+    lateinit var numOfTxt : TextView
+    var year = 0
+    var month = 0
+    var day = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,10 +58,16 @@ class activity_handWriting_write : AppCompatActivity(), View.OnClickListener{
 
         txt_title = findViewById(R.id.field_title)
         txt_contents = findViewById(R.id.field_contents)
+        field_name = findViewById(R.id.field_name)
+        field_term = findViewById(R.id.field_term)
+        field_date = findViewById(R.id.field_date)
+        field_howTO = findViewById(R.id.field_howto)
+        field_meter = findViewById(R.id.field_meter)
         btn_camera = findViewById(R.id.btn_camera)
         imageLL = findViewById(R.id.imageLL)
         toolbar = findViewById(R.id.toolbar)
 
+        field_date.setOnClickListener(this)
         btn_camera.setOnClickListener(this)
 
         setSupportActionBar(toolbar)
@@ -56,19 +75,24 @@ class activity_handWriting_write : AppCompatActivity(), View.OnClickListener{
         supportActionBar?.setDisplayShowTitleEnabled(false)
 
         if(getSharedPreferences("handWriting", Activity.MODE_PRIVATE) != null){
-            var title_shared = getSharedPreferences("handWriting", Activity.MODE_PRIVATE)
-            var title_editor = title_shared.edit()
+            val title_shared = getSharedPreferences("handWriting", Activity.MODE_PRIVATE)
+            val title_editor = title_shared.edit()
 
             if (title_shared.getString("title", null) != null || title_shared.getString("contents", null) != null){
                 val dlg: AlertDialog.Builder = AlertDialog.Builder(this@activity_handWriting_write,  android.R.style.Theme_DeviceDefault_Light_Dialog_NoActionBar_MinWidth)
                 dlg.setTitle("임시 저장")
                 dlg.setMessage("임시 저장된 글이 있습니다.\n복구하시겠습니까?")
                 dlg.setPositiveButton("복구", DialogInterface.OnClickListener { dialog, which ->
-                    txt_title.text = title_shared.getString("title", null)
-                    txt_contents.text = title_shared.getString("contents", null)
+                    txt_title.setText(title_shared.getString("title", null))
+                    txt_contents.setText(title_shared.getString("contents", null))
+                    field_howTO.setText(title_shared.getString("howTO", null))
+                    field_date.setText(title_shared.getString("examDate", null))
+                    field_meter.setText(title_shared.getString("meter", null))
+                    field_name.setText(title_shared.getString("name", null))
+                    field_term.setText(title_shared.getString("term", null))
 
                     title_editor.clear()
-                    title_editor.commit()
+                    title_editor.apply()
                 })
 
                 dlg.setNegativeButton("제거", {dialog, which ->
@@ -79,7 +103,6 @@ class activity_handWriting_write : AppCompatActivity(), View.OnClickListener{
                 dlg.show()
             }
         }
-
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -133,20 +156,30 @@ class activity_handWriting_write : AppCompatActivity(), View.OnClickListener{
     override fun onDestroy() {
         super.onDestroy()
 
-        if(!uploaded && txt_title.text.toString() != "" || txt_contents.text.toString() != ""){
-            var title_shared = getSharedPreferences("handWriting", Activity.MODE_PRIVATE)
-            var title_editor = title_shared.edit()
+        if(!uploaded && txt_title.text.toString() != "" || txt_contents.text.toString() != "" || field_date.text.toString() != "" || field_howTO.text.toString() != "" || field_meter.text.toString() != "" || field_name.text.toString() != "" || field_term.text.toString() != ""){
+            val title_shared = getSharedPreferences("handWriting", Activity.MODE_PRIVATE)
+            val title_editor = title_shared.edit()
 
             title_editor.putString("title", txt_title.text.toString())
             title_editor.putString("contents", txt_contents.text.toString())
+            title_editor.putString("examDate", field_date.text.toString())
+            title_editor.putString("howTO", field_howTO.text.toString())
+            title_editor.putString("meter", field_meter.text.toString())
+            title_editor.putString("name", field_name.text.toString())
+            title_editor.putString("term", field_term.text.toString())
 
-            title_editor.commit()
+            title_editor.apply()
         }
     }
 
     private fun upload(){
         val title = txt_title.text.toString()
         val contents = txt_contents.text.toString()
+        val examName = field_name.text.toString()
+        val examDate = field_date.text.toString()
+        val howTO = field_howTO.text.toString()
+        val term = field_term.text.toString()
+        val meter = field_meter.text.toString()
         val studentNo_short : String = studentNo.get(2).toString() + studentNo.get(3).toString()
         val name_no = name.length
         val name_hidden = name.get(0).toString()
@@ -156,7 +189,7 @@ class activity_handWriting_write : AppCompatActivity(), View.OnClickListener{
             hiddenChar = hiddenChar + "*"
         }
 
-        if(title == "" || contents == ""){
+        if(title == "" || contents == "" || examDate == "" || examName == "" || howTO == "" || term == "" || meter == ""){
             showDialog(title = "공백 필드", contents = "제목 및 내용을 입력하십시오.")
         }
 
@@ -174,7 +207,12 @@ class activity_handWriting_write : AppCompatActivity(), View.OnClickListener{
             }
 
             val handWrite = hashMapOf(
-                    "contents" to contents,
+                    "examDate" to examDate,
+                    "examName" to examName,
+                    "howTO" to howTO,
+                    "meter" to meter,
+                    "review" to contents,
+                    "term" to term,
                     "author_full" to dept + " " + studentNo + " " + name,
                     "author" to dept + " " + studentNo_short + " " + name_hidden + hiddenChar,
                     "imageIndex" to size,
@@ -182,11 +220,12 @@ class activity_handWriting_write : AppCompatActivity(), View.OnClickListener{
                     "phone" to phone,
                     "read" to 0,
                     "recommend" to 0,
+                    "title" to title,
                     "Date Time" to current.toString(),
                     "id" to id
             )
 
-            db.collection("HandWriting").document(title).set(handWrite)
+            db.collection("HandWriting").document().set(handWrite)
                     .addOnCompleteListener{
                         if(!uriArray.isEmpty()){
                             uploadImage()
@@ -313,7 +352,46 @@ class activity_handWriting_write : AppCompatActivity(), View.OnClickListener{
 
                 getImage()
             }
+
+            if(v.id == R.id.field_date){
+                val calendar: Calendar = Calendar.getInstance()
+                day = calendar.get(Calendar.DAY_OF_MONTH)
+                month = calendar.get(Calendar.MONTH)
+                year = calendar.get(Calendar.YEAR)
+                val datePickerDialog =
+                        DatePickerDialog(this@activity_handWriting_write, this@activity_handWriting_write, year, month, day)
+                datePickerDialog.show()
+            }
         }
+    }
+
+    override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
+        day = dayOfMonth
+        this.year = year
+        this.month = month
+        var month_fin = ""
+        var day_fin = ""
+
+        if((month + 1) < 10){
+            month_fin = "0" + (month + 1).toString()
+        }
+
+        else{
+            month_fin = (month + 1).toString()
+        }
+
+        if(day < 10){
+            day_fin = "0" + day.toString()
+        }
+
+        else{
+            day_fin = day.toString()
+        }
+
+        val year_fin = year.toString()
+
+        field_date.setText(year_fin + ". " + month_fin + ". " + day_fin + ". ")
+
     }
 
     fun getImage(){
