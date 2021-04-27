@@ -187,7 +187,7 @@ class activity_checkAcademic : AppCompatActivity(), View.OnClickListener{
                                 isNamePassed = true
                             }
 
-                            if(lineText_fin.contains(dept)){
+                            if(lineText_fin.contains("공과대학")){
                                 isDeptPassed = true
                             }
 

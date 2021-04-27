@@ -142,12 +142,24 @@
                 android:textColor="#ffffff"/>
 
             <com.royrodriguez.transitionbutton.TransitionButton
+                android:id = "@+id/btn_myFeedback"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:text = "보낸 피드백 보기"
+                android:fontFamily="@font/nanumsquare_bold"
+                android:textSize="15sp"
+                app:defaultColor="#ffffff"
+                android:textColor="#C83F51B5"/>
+
+            <com.royrodriguez.transitionbutton.TransitionButton
                 android:id = "@+id/allFeedback"
                 android:layout_width="300dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
-                android:visibility="invisible"
+                android:visibility="gone"
                 android:text = "모든 피드백 보기"
                 android:fontFamily="@font/nanumsquare_bold"
                 android:textSize="15sp"

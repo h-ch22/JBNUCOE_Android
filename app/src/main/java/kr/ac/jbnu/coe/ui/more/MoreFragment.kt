@@ -59,6 +59,9 @@ class MoreFragment : Fragment(), View.OnClickListener {
     lateinit var auto : SharedPreferences
     lateinit var autoSignIn : SharedPreferences.Editor
     lateinit var txt_studentNo : TextView
+    lateinit var btn_percentage : TransitionButton
+    lateinit var btn_delivery : TransitionButton
+
     var uri : Uri? = null
     val Gallery = 0
     val email = Firebase.auth.currentUser?.email.toString()
@@ -85,9 +88,10 @@ class MoreFragment : Fragment(), View.OnClickListener {
         btn_product = root.findViewById(R.id.btn_checkLate)
         btn_signOut = root.findViewById(R.id.btn_signOut)
         btn_secession = root.findViewById(R.id.btn_secsession)
-        btn_info = root.findViewById(R.id.btn_info)
         txt_studentNo = root.findViewById(R.id.txt_studentNo)
         btn_handWriting = root.findViewById(R.id.btn_handwriting)
+        btn_percentage = root.findViewById(R.id.btn_percent)
+        btn_delivery = root.findViewById(R.id.btn_delivery)
 
         getData()
 
@@ -98,8 +102,9 @@ class MoreFragment : Fragment(), View.OnClickListener {
         btn_product.setOnClickListener(this)
         btn_signOut.setOnClickListener(this)
         btn_secession.setOnClickListener(this)
-        btn_info.setOnClickListener(this)
         btn_handWriting.setOnClickListener(this)
+        btn_percentage.setOnClickListener(this)
+        btn_delivery.setOnClickListener(this)
 
         return root
     }
@@ -202,9 +207,19 @@ class MoreFragment : Fragment(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         if (v != null){
+            if(v.id == R.id.btn_delivery){
+                val intent = Intent(mContext, activity_delivery::class.java)
+                startActivity(intent)
+            }
+
             if(v.id == R.id.btn_changeProfile){
                 btn_changeProfile.startAnimation()
                 changeProfile()
+            }
+
+            if(v.id == R.id.btn_percent){
+                val intent = Intent(mContext, activity_percentage::class.java)
+                startActivity(intent)
             }
 
             if(v.id == R.id.btn_introduce){
@@ -224,11 +239,6 @@ class MoreFragment : Fragment(), View.OnClickListener {
 
             if(v.id == R.id.btn_feedbackHub){
                 val intent = Intent(mContext, activity_feedbackHubMain::class.java)
-                startActivity(intent)
-            }
-
-            if(v.id == R.id.btn_info){
-                val intent = Intent(mContext, activity_info::class.java)
                 startActivity(intent)
             }
 

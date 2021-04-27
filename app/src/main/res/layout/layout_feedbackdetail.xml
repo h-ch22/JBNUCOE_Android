@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#C83F51B5"
+    android:background="@color/white"
     android:fitsSystemWindows="true"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -31,7 +31,7 @@
                 android:scrollbars="vertical"
                 android:layout_height="wrap_content"
                 android:text = ""
-                android:textColor="#ffffff"
+                android:textColor="@color/black"
                 android:fontFamily="@font/nanumsquare_regular"
                 android:textSize="20sp"/>
 
@@ -45,7 +45,7 @@
                 android:scrollbars="vertical"
                 android:layout_height="wrap_content"
                 android:text = ""
-                android:textColor="#ffffff"
+                android:textColor="@color/black"
                 android:fontFamily="@font/nanumsquare_regular"
                 android:textSize="20sp"/>
 
@@ -59,7 +59,7 @@
                 android:scrollbars="vertical"
                 android:layout_height="wrap_content"
                 android:text = ""
-                android:textColor="#ffffff"
+                android:textColor="@color/black"
                 android:fontFamily="@font/nanumsquare_regular"
                 android:textSize="20sp"/>
 
@@ -73,7 +73,7 @@
                 android:scrollbars="vertical"
                 android:layout_height="wrap_content"
                 android:text = ""
-                android:textColor="#ffffff"
+                android:textColor="@color/black"
                 android:fontFamily="@font/nanumsquare_regular"
                 android:textSize="20sp"/>
 
@@ -87,9 +87,64 @@
                 android:scrollbars="vertical"
                 android:layout_height="wrap_content"
                 android:text = ""
+                android:padding="20dp"
                 android:textColor="#ffffff"
+                android:background="#8fc1ff"
                 android:fontFamily="@font/nanumsquare_bold"
-                android:textSize="25sp"/>
+                android:textSize="20sp"/>
+
+            <LinearLayout
+                android:visibility="gone"
+                android:id = "@+id/answerLL"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:background="#ff8f8f"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text = "피드백에 대한 답변입니다."
+                    android:textColor="#ffffff"
+                    android:fontFamily="@font/nanumsquare_bold"
+                    android:textSize="20sp"/>
+
+                <TextView
+                    android:id = "@+id/txt_answer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="10dp"
+                    android:textColor="#ffffff"
+                    android:text = ""/>
+
+                <TextView
+                    android:visibility="gone"
+                    android:id = "@+id/txt_answer_author"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#cbed9f"
+                    android:text = "답변 작성자 : "
+                    android:drawableStart="@drawable/ic_admin"/>
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/field_answer"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_gravity="center"
+                android:background="#C83F51B5"
+                android:fontFamily="@font/nanumsquare_bold"
+                android:hint="피드백의 답변을 입력하십시오."
+                android:windowSoftInputMode="adjustResize|stateHidden"
+                android:inputType="textMultiLine"
+                android:scrollbars="vertical"
+                android:textColor="#ffffff"
+                android:padding="20dp"
+                android:textColorHint="#ffffff" />
 
         </LinearLayout>
 

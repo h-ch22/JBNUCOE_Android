@@ -78,6 +78,15 @@
 
         </LinearLayout>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id = "@+id/status"
+            android:text = ""
+            android:textColor="#ffffff"
+            android:fontFamily="@font/nanumsquare_bold"
+            android:textSize="10sp"/>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

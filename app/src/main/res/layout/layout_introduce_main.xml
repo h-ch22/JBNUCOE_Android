@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:id = "@+id/txt_title"
             android:textSize="20sp"
-            android:text = "공대 학생회 소개"
+            android:text = "공대 학생회 소개 및 정보"
             android:textColor="#ffffff"
             android:fontFamily="@font/nanumsquare_bold"/>
 
@@ -40,28 +40,92 @@
             android:layout_marginTop="20dp"
             android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/img_notice"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:src = "@drawable/coelogo_white"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
-
-            <TextView
-                android:id = "@+id/txt_introduceTitle"
-                app:layout_constraintTop_toBottomOf="@id/img_notice"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="20dp"
-                android:layout_width="300dp"
+            <LinearLayout
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text = "우리의 이야기, 들어보실래요?"
-                android:textColor="#ffffff"
-                android:fontFamily="@font/nanumsquare_extrabold"
-                android:textSize="20sp"/>
+                android:layout_marginTop="20dp"
+                android:padding="10dp"
+                android:id = "@+id/infoLL"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:backgroundTint="#E6ffffff"
+                android:background="@drawable/btn_rounded">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="20dp"
+                    android:src = "@drawable/ic"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="20dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text = "전북대 공대"
+                        android:textColor="#000000"
+                        android:fontFamily="@font/nanumsquare_extrabold"
+                        android:textSize="20sp"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:id = "@+id/txt_currentVersion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text = ""
+                        android:textColor="#000000"
+                        android:fontFamily="@font/nanumsquare_bold"
+                        android:textSize="20sp"
+                        android:layout_marginTop="20dp"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:id = "@+id/txt_latestVersion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text = ""
+                        android:textColor="#000000"
+                        android:fontFamily="@font/nanumsquare_bold"
+                        android:textSize="20sp"
+                        android:layout_marginTop="20dp"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:id = "@+id/txt_versionStatus"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text = ""
+                        android:textColor="#000000"
+                        android:fontFamily="@font/nanumsquare_bold"
+                        android:textSize="20sp"
+                        android:layout_marginTop="20dp"
+                        android:gravity="center"/>
+
+                    <com.royrodriguez.transitionbutton.TransitionButton
+                        android:visibility="gone"
+                        android:layout_width="200dp"
+                        android:layout_height="60dp"
+                        android:id = "@+id/btn_update"
+                        android:text = "업데이트 하기"
+                        android:layout_marginTop="20dp"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="20dp"
+                        android:textColor="#ffffff"
+                        android:fontFamily="@font/nanumsquare_bold"
+                        app:defaultColor="#C83F51B5"
+                        app:loaderColor="#ffffff"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
 
             <com.royrodriguez.transitionbutton.TransitionButton
                 android:id = "@+id/btn_hello"
@@ -73,11 +137,10 @@
                 android:fontFamily="@font/nanumsquare_bold"
                 android:padding="20dp"
                 android:drawableStart="@drawable/ic_greeting"
-
                 app:defaultColor="#ffffff"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/txt_introduceTitle" />
+                app:layout_constraintTop_toBottomOf="@id/infoLL" />
 
             <com.royrodriguez.transitionbutton.TransitionButton
                 android:id = "@+id/btn_introduce"
@@ -95,19 +158,32 @@
                 app:layout_constraintTop_toBottomOf="@id/btn_hello" />
 
             <com.royrodriguez.transitionbutton.TransitionButton
-                android:id = "@+id/btn_percent"
+                android:id = "@+id/btn_privacy"
                 android:layout_width="300dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="20dp"
-                android:text = "실시간 공약이행률"
+                android:text = "개인정보 처리 방침 읽기"
                 android:textColor="#000000"
-                android:fontFamily="@font/nanumsquare_bold"
-                android:padding="20dp"
-                android:drawableStart="@drawable/ic_graph"
-                app:defaultColor="#ffffff"
+                android:layout_gravity="center"
+                app:layout_constraintTop_toBottomOf="@id/btn_introduce"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/btn_introduce" />
+                android:fontFamily="@font/nanumsquare_bold"
+                android:padding="20dp"
+                android:drawableStart="@drawable/ic_info"
+                app:defaultColor="#ffffff" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text = "(C) 2021. Jeonbuk National University\nPublicy Department of College of Engineering\nStudent Council,\nAll Rights Reserved."
+                android:gravity="center"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_privacy"
+                android:textColor="#ffffff"
+                android:fontFamily="@font/nanumsquare_bold"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -74,38 +74,6 @@ class activity_productStatus : AppCompatActivity(), View.OnClickListener{
     }
 
     fun setStatus(){
-        var isAvailable = false
-        val sdf = SimpleDateFormat("yyyy.MM.dd")
-        val sdf_time = SimpleDateFormat("HH:mm")
-        val sdf_withTime = SimpleDateFormat("yyyy.MM.dd HH:mm")
-        val closeTime = "18:00"
-        val openTime = "09:00"
-
-        val today = sdf_withTime.format(Date())
-        val today_date = sdf.format(Date())
-        val openDate = today_date + " " + openTime
-        val closeDate = today_date + " " + closeTime
-        Log.d("close", closeDate)
-        Log.d("today", today)
-
-        var close_fin = sdf_withTime.parse(closeDate)
-        val open_fin = sdf_withTime.parse(openDate)
-
-        if(close_fin.after(sdf_withTime.parse(today))){
-            val today_tmp = Date()
-            val tomorrow = Date(today_tmp.time + ( 1000 * 60 * 60 * 24 ))
-            val tomorrow_str = sdf_withTime.format(tomorrow).toString()
-            close_fin = sdf_withTime.parse(tomorrow_str)
-        }
-
-        if(sdf_withTime.parse(today).before(close_fin) && sdf_withTime.parse(today).after(open_fin)){
-            isAvailable = true
-        }
-
-        else{
-            isAvailable = false
-        }
-
         val docRef = db.collection("Products").document("status")
         docRef.get().addOnCompleteListener{task ->
             if(task.isSuccessful){
@@ -114,16 +82,11 @@ class activity_productStatus : AppCompatActivity(), View.OnClickListener{
                 if(document.exists()){
                     val status : Boolean = document.get("isAvailable") as Boolean
 
-                    if (status && isAvailable){
+                    if (status) {
                         img_status.setImageResource(R.drawable.ic_checkmark)
+                        img_status.setColorFilter(Color.parseColor("#8fff93"))
                         txt_status.text = "서비스를 정상적으로 이용하실 수 있습니다."
-                        txt_status.setTextColor(Color.parseColor("#008D2A"))
-                    }
-
-                    if (status && !isAvailable){
-                        img_status.setImageResource(R.drawable.ic_notavailable)
-                        txt_status.text = "서비스 준비 중입니다.\n이용 가능 시간 : 평일 오전 9시 ~ 오후 6시"
-                        txt_status.setTextColor(Color.parseColor("#ffd864"))
+                        txt_status.setTextColor(Color.parseColor("#8fff93"))
                     }
 
                     else{

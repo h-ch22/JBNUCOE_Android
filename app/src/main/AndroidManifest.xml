@@ -70,6 +70,10 @@
         <activity android:name=".ui.handWriting.activity_handWritingDetails"/>
         <activity android:name=".ui.handWriting.activity_handWriting_edit"/>
         <activity android:name=".activity_singleImageView"/>
+        <activity android:name=".ui.more.activity_myFeedback"/>
+        <activity android:name=".ui.more.activity_myFeedbackDetails"/>
+        <activity android:name=".ui.more.activity_delivery"/>
+        <activity android:name=".ui.more.activity_deliveryLog"/>
     </application>
 
 </manifest>

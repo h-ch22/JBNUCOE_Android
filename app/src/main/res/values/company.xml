@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="company">
+
+        <item>CJ 대한통운</item>
+        <item>기타 (쿠팡 등)</item>
+        <item>우체국 택배</item>
+        <item>한진택배</item>
+        <item>롯데택배</item>
+        <item>로젠택배</item>
+        <item>홈픽택배</item>
+        <item>CVSNet 편의점 택배(GS25)</item>
+        <item>경동택배</item>
+        <item>대신택배</item>
+        <item>일양로직스</item>
+        <item>합동택배</item>
+        <item>건영택배</item>
+        <item>천일택배</item>
+        <item>한덱스</item>
+        <item>한의사랑택배</item>
+        <item>EMS</item>
+        <item>DHL</item>
+        <item>TNT Express</item>
+        <item>UPS</item>
+        <item>i-Parcel</item>
+        <item>DHS Global Mail</item>
+        <item>판토스</item>
+        <item>에어보이익스프레스</item>
+        <item>GSMNtoN</item>
+        <item>ECMS Express</item>
+        <item>KGL 네트웍스</item>
+        <item>굿투럭</item>
+        <item>호남택배</item>
+        <item>GSI Express</item>
+        <item>SLX 택배</item>
+        <item>우리한방택배</item>
+        <item>세방</item>
+        <item>KGB 택배</item>
+        <item>Cway Express</item>
+        <item>YJS글로벌 (영국)</item>
+        <item>성원글로벌카고</item>
+        <item>홈이노베이션로지스</item>
+        <item>은하쉬핑</item>
+        <item>Giant Network Group</item>
+        <item>FLF퍼레버택배</item>
+        <item>농협택배</item>
+        <item>YJS글로벌 (월드)</item>
+        <item>디디로지스</item>
+        <item>대림통운</item>
+        <item>LOTOS CORPORATION</item>
+        <item>애니트랙</item>
+        <item>성훈물류</item>
+        <item>IK물류</item>
+        <item>엘서비스</item>
+        <item>티피엠코리아(주) 용달이 특송</item>
+        <item>제니엘시스템</item>
+        <item>스마트로지스</item>
+        <item>이투마스(ETOMARS)</item>
+        <item>풀엣홈</item>
+        <item>프레시솔루션</item>
+        <item>큐런택배</item>
+        <item>두발히어로</item>
+        <item>하이브시티</item>
+        <item>오늘의픽업</item>
+        <item>펜스타국제특송 (PIEX)</item>
+        <item>지니고 당일특급</item>
+        <item>로지스밸리</item>
+        <item>롯데국제특송</item>
+        <item>나은물류</item>
+        <item>한샘서비스원 택배</item>
+        <item>배송하기좋은날 (SHIPNERGY)</item>
+        <item>NDEX KOREA</item>
+        <item>도도플렉스(dodoflex)</item>
+        <item>브릿지로지스(주)</item>
+        <item>허브넷로지스틱스</item>
+        <item>MEXGLOBAL</item>
+        <item>A.C.E EXPRESS INC</item>
+
+    </string-array>
+
+</resources>

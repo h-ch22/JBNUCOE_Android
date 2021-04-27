@@ -27,6 +27,7 @@ class activity_feedbackHubMain : AppCompatActivity(), View.OnClickListener{
     lateinit var btn_sendFeedback : TransitionButton
     lateinit var btn_allFeedback : TransitionButton
     lateinit var field_title : EditText
+    lateinit var btn_myFeedback : TransitionButton
     var type : String = ""
     var category : String = ""
     var feedback : String = ""
@@ -46,6 +47,7 @@ class activity_feedbackHubMain : AppCompatActivity(), View.OnClickListener{
         btn_sendFeedback = findViewById(R.id.sendFeedback)
         btn_allFeedback = findViewById(R.id.allFeedback)
         field_title = findViewById(R.id.field_title)
+        btn_myFeedback = findViewById(R.id.btn_myFeedback)
 
         val typeItems = resources.getStringArray(R.array.type)
         val typeAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, typeItems)
@@ -123,6 +125,7 @@ class activity_feedbackHubMain : AppCompatActivity(), View.OnClickListener{
 
         btn_sendFeedback.setOnClickListener(this)
         btn_allFeedback.setOnClickListener(this)
+        btn_myFeedback.setOnClickListener(this)
     }
 
     fun sendFeedback(author : String){
@@ -211,6 +214,11 @@ class activity_feedbackHubMain : AppCompatActivity(), View.OnClickListener{
 
             if(v.id == R.id.allFeedback){
                 val intent = Intent(applicationContext, activity_allFeedback::class.java)
+                startActivity(intent)
+            }
+
+            if(v.id == R.id.btn_myFeedback){
+                val intent = Intent(applicationContext, activity_myFeedback::class.java)
                 startActivity(intent)
             }
         }

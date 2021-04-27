@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="10dp"
+    android:background="@color/background"
     tools:context=".ui.alliance.AllianceFragment">
 
     <TextView
@@ -82,7 +83,7 @@
 
             <TextView
                 android:id = "@+id/title_category"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text = "원하시는 카테고리를 선택해보세요!"
                 android:fontFamily="@font/nanumsquare_extrabold"
@@ -91,6 +92,7 @@
                 android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/category_first"
                 app:layout_constraintEnd_toEndOf="parent"/>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -115,8 +117,8 @@
 
                     <ImageButton
                         android:id = "@+id/btn_all"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
                         android:src = "@drawable/ic_all"
                         android:scaleType="fitXY"
                         android:background = "#00ff0000" />
@@ -128,7 +130,7 @@
                         android:text = "전체 보기"
                         android:fontFamily="@font/nanumsquare_bold"
                         android:layout_marginTop="5dp"
-                        android:textSize="20sp"/>
+                        android:textSize="15sp"/>
 
                 </LinearLayout>
 
@@ -136,7 +138,6 @@
                     android:id = "@+id/mealLL"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="40dp"
                     app:layout_constraintStart_toEndOf="@id/allLL"
                     app:layout_constraintEnd_toStartOf="@id/soupLL"
                     app:layout_constraintTop_toTopOf="@id/category_first"
@@ -144,8 +145,8 @@
 
                     <ImageButton
                         android:id = "@+id/btn_meal"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
                         android:src = "@drawable/ic_meal_foreground"
                         android:padding = "10dp"
                         android:scaleType="fitXY"
@@ -158,7 +159,7 @@
                         android:text = "식사"
                         android:fontFamily="@font/nanumsquare_bold"
                         android:layout_marginTop="5dp"
-                        android:textSize="20sp"/>
+                        android:textSize="15sp"/>
 
                 </LinearLayout>
 
@@ -167,7 +168,6 @@
                     android:id = "@+id/soupLL"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="40dp"
                     app:layout_constraintStart_toEndOf="@id/mealLL"
                     app:layout_constraintTop_toTopOf="@id/category_first"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -175,8 +175,8 @@
 
                     <ImageButton
                         android:id = "@+id/btn_sports"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
                         android:src = "@drawable/ic_sports_foreground"
                         android:tint="#ffffff"
                         android:padding = "10dp"
@@ -190,7 +190,7 @@
                         android:text = "스포츠"
                         android:fontFamily="@font/nanumsquare_bold"
                         android:layout_marginTop="5dp"
-                        android:textSize="20sp"/>
+                        android:textSize="15sp"/>
 
                 </LinearLayout>
 
@@ -203,7 +203,7 @@
                 android:orientation="horizontal"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/title_activity"
                 android:layout_marginTop="40dp"
                 android:gravity="center"
                 app:layout_constraintTop_toBottomOf="@id/category_first">
@@ -219,8 +219,8 @@
 
                     <ImageButton
                         android:id = "@+id/btn_cafe"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
                         android:src = "@drawable/ic_cafe_foreground"
                         android:padding = "10dp"
                         android:scaleType="fitXY"
@@ -233,7 +233,7 @@
                         android:text = "카페"
                         android:fontFamily="@font/nanumsquare_bold"
                         android:layout_marginTop="5dp"
-                        android:textSize="20sp"/>
+                        android:textSize="15sp"/>
 
                 </LinearLayout>
 
@@ -244,13 +244,12 @@
                     app:layout_constraintEnd_toStartOf="@id/alcoholLL"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="40dp"
                     android:orientation="vertical">
 
                     <ImageButton
                         android:id = "@+id/btn_convenience"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
                         android:src = "@drawable/ic_convenience_foreground"
                         android:padding = "10dp"
                         android:scaleType="fitXY"
@@ -263,7 +262,7 @@
                         android:text = "편의"
                         android:fontFamily="@font/nanumsquare_bold"
                         android:layout_marginTop="5dp"
-                        android:textSize="20sp"/>
+                        android:textSize="15sp"/>
 
                 </LinearLayout>
 
@@ -275,13 +274,12 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="40dp"
                     android:orientation="vertical">
 
                     <ImageButton
                         android:id = "@+id/btn_alcohol"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
                         android:src = "@drawable/ic_alcohol_foreground"
                         android:padding = "10dp"
                         android:scaleType="fitXY"
@@ -294,11 +292,85 @@
                         android:text = "술"
                         android:fontFamily="@font/nanumsquare_bold"
                         android:layout_marginTop="5dp"
-                        android:textSize="20sp"/>
+                        android:textSize="15sp"/>
 
                 </LinearLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id = "@+id/title_activity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text = "이런 활동 어때요?"
+                android:fontFamily="@font/nanumsquare_extrabold"
+                android:textSize="15sp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginVertical="20dp"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/secondLL"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <Button
+                android:id = "@+id/btn_promote_1"
+                app:layout_constraintTop_toBottomOf="@id/title_activity"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_width="350dp"
+                android:lineSpacingExtra="10dp"
+                android:layout_marginTop="20dp"
+                android:text = ""
+                android:textColor="@color/black"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/nanumsquare_bold"
+                android:layout_height="100dp" />
+
+            <Button
+                android:id = "@+id/btn_promote_2"
+                app:layout_constraintTop_toBottomOf="@id/btn_promote_1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:lineSpacingExtra="10dp"
+
+                android:layout_width="350dp"
+                android:layout_marginTop="20dp"
+                android:text = ""
+                android:textColor="@color/black"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/nanumsquare_bold"
+                android:layout_height="100dp" />
+
+            <Button
+                android:id = "@+id/btn_promote_3"
+                app:layout_constraintTop_toBottomOf="@id/btn_promote_2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_width="350dp"
+                android:lineSpacingExtra="10dp"
+
+                android:layout_marginTop="20dp"
+                android:text = ""
+                android:textColor="@color/black"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/nanumsquare_bold"
+                android:layout_height="100dp" />
+
+            <Button
+                android:id = "@+id/btn_promote_4"
+                app:layout_constraintTop_toBottomOf="@id/btn_promote_3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_width="350dp"
+                android:layout_marginTop="20dp"
+                android:lineSpacingExtra="10dp"
+
+                android:text = ""
+                android:textColor="@color/black"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/nanumsquare_bold"
+                android:layout_height="100dp" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

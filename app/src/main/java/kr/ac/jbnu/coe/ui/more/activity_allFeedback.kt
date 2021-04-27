@@ -40,9 +40,18 @@ class activity_allFeedback : AppCompatActivity() {
                 val type = document.get("Type").toString()
                 val category = document.get("Category").toString()
                 val title = document.id.toString()
+                var status = ""
+
+                if (document.get("answer") != null){
+                    status = "true"
+                }
+
+                else{
+                    status = "false"
+                }
 
                 feedbackList.add(
-                    feedbackItem(feedbackTitle = title, author = author, date = dateTime, type = type, category = category)
+                    feedbackItem(feedbackTitle = title, author = author, date = dateTime, type = type, category = category, status = status)
                 )
 
 

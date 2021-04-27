@@ -7,7 +7,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageButton
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
@@ -23,6 +25,11 @@ class AllianceFragment : Fragment(), View.OnClickListener {
     private var pagerAdapter: PagerAdapter? = null
     private var currentPage : Int = 1
     lateinit var pager : ViewPager
+    lateinit var txt_activity_1 : Button
+    lateinit var txt_activity_2 : Button
+    lateinit var txt_activity_3 : Button
+    lateinit var txt_activity_4 : Button
+
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
@@ -37,6 +44,11 @@ class AllianceFragment : Fragment(), View.OnClickListener {
         val btn_convenience : ImageButton = root.findViewById(R.id.btn_convenience)
         val btn_alcohol : ImageButton = root.findViewById(R.id.btn_alcohol)
         val btn_details : ImageButton = root.findViewById(R.id.btn_details)
+        txt_activity_1 = root.findViewById(R.id.btn_promote_1)
+        txt_activity_2 = root.findViewById(R.id.btn_promote_2)
+        txt_activity_3 = root.findViewById(R.id.btn_promote_3)
+        txt_activity_4 = root.findViewById(R.id.btn_promote_4)
+
         val dpValue = 16
         val d = resources.displayMetrics.density
         val margin = (dpValue * d)
@@ -75,6 +87,8 @@ class AllianceFragment : Fragment(), View.OnClickListener {
 
         handler.post(runnable)
 
+        getData()
+
         btn_all.setOnClickListener(this)
         btn_meal.setOnClickListener(this)
         btn_soup.setOnClickListener(this)
@@ -82,6 +96,12 @@ class AllianceFragment : Fragment(), View.OnClickListener {
         btn_convenience.setOnClickListener(this)
         btn_cafe.setOnClickListener(this)
         btn_details.setOnClickListener(this)
+
+        txt_activity_1.setOnClickListener(this)
+        txt_activity_2.setOnClickListener(this)
+        txt_activity_3.setOnClickListener(this)
+        txt_activity_4.setOnClickListener(this)
+
         return root
     }
 
@@ -129,6 +149,78 @@ class AllianceFragment : Fragment(), View.OnClickListener {
                 startActivity(intent)
             }
 
+            if(v.id == R.id.btn_promote_1){
+                val db = Firebase.firestore
+                val docRef = db.collection("Promotion").document("#1")
+
+                docRef.get().addOnCompleteListener { task ->
+                    if(task.isSuccessful){
+                        val document = task.result
+
+                        if(document.exists()){
+                            val intent = Intent(activity, activity_allianceList::class.java)
+                            intent.putExtra("category", document.get("link").toString())
+                            intent.putExtra("categoryKR", document.get("link_KR").toString())
+                            startActivity(intent)
+                        }
+                    }
+                }
+            }
+
+            if(v.id == R.id.btn_promote_2){
+                val db = Firebase.firestore
+                val docRef = db.collection("Promotion").document("#2")
+
+                docRef.get().addOnCompleteListener { task ->
+                    if(task.isSuccessful){
+                        val document = task.result
+
+                        if(document.exists()){
+                            val intent = Intent(activity, activity_allianceList::class.java)
+                            intent.putExtra("category", document.get("link").toString())
+                            intent.putExtra("categoryKR", document.get("link_KR").toString())
+                            startActivity(intent)
+                        }
+                    }
+                }
+            }
+
+            if(v.id == R.id.btn_promote_3){
+                val db = Firebase.firestore
+                val docRef = db.collection("Promotion").document("#3")
+
+                docRef.get().addOnCompleteListener { task ->
+                    if(task.isSuccessful){
+                        val document = task.result
+
+                        if(document.exists()){
+                            val intent = Intent(activity, activity_allianceList::class.java)
+                            intent.putExtra("category", document.get("link").toString())
+                            intent.putExtra("categoryKR", document.get("link_KR").toString())
+                            startActivity(intent)
+                        }
+                    }
+                }
+            }
+
+            if(v.id == R.id.btn_promote_4){
+                val db = Firebase.firestore
+                val docRef = db.collection("Promotion").document("#4")
+
+                docRef.get().addOnCompleteListener { task ->
+                    if(task.isSuccessful){
+                        val document = task.result
+
+                        if(document.exists()){
+                            val intent = Intent(activity, activity_allianceList::class.java)
+                            intent.putExtra("category", document.get("link").toString())
+                            intent.putExtra("categoryKR", document.get("link_KR").toString())
+                            startActivity(intent)
+                        }
+                    }
+                }
+            }
+
             if(v.id == R.id.btn_details){
                 val db = Firebase.firestore
                 val docRef = db.collection("Ad").document(pager.currentItem.toString())
@@ -165,6 +257,31 @@ class AllianceFragment : Fragment(), View.OnClickListener {
                             }
                         }
                     }
+                }
+            }
+        }
+    }
+
+    fun getData(){
+        val db = Firebase.firestore
+        val docRef = db.collection("Promotion")
+
+        docRef.get().addOnSuccessListener { result ->
+            for(document in result){
+                if(document.id == "#1"){
+                    txt_activity_1.setText(document.get("title").toString() + "\n" + document.get("contents").toString())
+                }
+
+                if(document.id == "#2"){
+                    txt_activity_2.setText(document.get("title").toString() + "\n" + document.get("contents").toString())
+                }
+
+                if(document.id == "#3"){
+                    txt_activity_3.setText(document.get("title").toString() + "\n" + document.get("contents").toString())
+                }
+
+                if(document.id == "#4"){
+                    txt_activity_4.setText(document.get("title").toString() + "\n" + document.get("contents").toString())
                 }
             }
         }

@@ -139,7 +139,7 @@
                 android:layout_width="300dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="20dp"
-                android:text = "공대 학생회 소개"
+                android:text = "공대 학생회 소개 및 정보"
                 android:textColor="#000000"
                 android:fontFamily="@font/nanumsquare_bold"
                 android:padding="20dp"
@@ -148,6 +148,21 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <com.royrodriguez.transitionbutton.TransitionButton
+                android:id = "@+id/btn_percent"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:text = "실시간 공약이행률"
+                android:textColor="#000000"
+                android:fontFamily="@font/nanumsquare_bold"
+                android:padding="20dp"
+                android:drawableStart="@drawable/ic_graph"
+                app:defaultColor="#ffffff"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_introduce" />
 
             <com.royrodriguez.transitionbutton.TransitionButton
                 android:id = "@+id/btn_checkLate"
@@ -162,7 +177,22 @@
                 app:defaultColor="#ffffff"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/btn_introduce" />
+                app:layout_constraintTop_toBottomOf="@id/btn_percent" />
+
+            <com.royrodriguez.transitionbutton.TransitionButton
+                android:id = "@+id/btn_delivery"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:text = "택배 대리 수령 요청"
+                android:textColor="#000000"
+                android:fontFamily="@font/nanumsquare_bold"
+                android:padding="20dp"
+                android:drawableStart="@drawable/ic_box"
+                app:defaultColor="#ffffff"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_checkLate" />
 
 <!--            <com.royrodriguez.transitionbutton.TransitionButton-->
 <!--                android:id = "@+id/btn_calendar"-->
@@ -192,7 +222,7 @@
                 app:defaultColor="#ffffff"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/btn_checkLate" />
+                app:layout_constraintTop_toBottomOf="@id/btn_delivery" />
 
             <com.royrodriguez.transitionbutton.TransitionButton
                 android:id = "@+id/btn_campusmap"
@@ -253,22 +283,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/btn_signOut" />
-
-            <com.royrodriguez.transitionbutton.TransitionButton
-                android:id = "@+id/btn_info"
-                android:layout_width="300dp"
-                android:layout_height="60dp"
-                android:layout_marginTop="20dp"
-                android:text = "정보"
-                android:textColor="#000000"
-                android:fontFamily="@font/nanumsquare_bold"
-                android:padding="20dp"
-                android:drawableStart="@drawable/ic_info"
-                android:layout_marginBottom="20dp"
-                app:defaultColor="#ffffff"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/btn_secsession" />
 
         </LinearLayout>
 

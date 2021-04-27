@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fitsSystemWindows="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.appcompat.widget.Toolbar
+        app:layout_constraintTop_toTopOf="parent"
+        android:id = "@+id/toolbar"
+        android:background="@drawable/titlebar"
+        android:layout_width="match_parent"
+        android:theme = "@style/MyThemeOverlay_Toolbar2"
+        android:layout_height = "80dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id = "@+id/txt_title"
+            android:textSize="20sp"
+            android:text = "택배 대리 수령 요청"
+            android:textColor="#ffffff"
+            android:fontFamily="@font/nanumsquare_bold"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text = "공과대학 학생회실로 주소를 설정한 후\n정보를 업로드해주세요."
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/nanumsquare_regular"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text = "전라북도 전주시 덕진구 백제대로 567\n전북대학교 공과대학 1호관 243호,\n공과대학 학생회실"
+                    android:gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:layout_gravity="center"
+                    android:background="#99d1ff"
+                    android:padding="20dp"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/nanumsquare_extrabold"/>
+
+                <EditText
+                    android:id="@+id/field_date"
+                    android:layout_gravity="center"
+                    android:layout_width="350dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="30dp"
+                    android:background="@null"
+                    android:fontFamily="@font/nanumsquare_bold"
+                    android:hint="예상 도착일"
+                    android:inputType= "none"
+                    android:focusable="false"
+                    android:clickable="true"
+                    android:textColor = "@color/black"
+                    android:textColorHint="#595959" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="20dp"
+                    android:orientation="horizontal">
+
+                    <Spinner
+                        android:layout_width="150dp"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="20dp"
+                        android:spinnerMode="dialog"
+                        android:id = "@+id/spinner_delivery" />
+
+                    <EditText
+                        android:id="@+id/field_waybill"
+                        android:layout_gravity="center"
+                        android:layout_width="200dp"
+                        android:layout_height="60dp"
+                        android:fontFamily="@font/nanumsquare_bold"
+                        android:hint="운송장 번호"
+                        android:inputType="number"
+                        android:textColor = "@color/black"
+                        android:textColorHint="#595959"
+                        android:layout_marginTop="10dp"/>
+
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/field_others"
+                    android:layout_gravity="center"
+                    android:layout_width="350dp"
+                    android:layout_height="60dp"
+                    android:fontFamily="@font/nanumsquare_bold"
+                    android:hint="기타 선택 메시지 (예 : 파손 주의)"
+                    android:textColor = "@color/black"
+                    android:textColorHint="#595959"
+                    android:layout_marginTop="10dp"/>
+
+                <LinearLayout
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="20dp"
+                    android:background="#e6e6e6"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text = "회원 정보 조회 동의"
+                        android:fontFamily="@font/nanumsquare_extrabold"
+                        android:layout_gravity="center"
+                        android:textSize="20sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text = "성명, 학과, 학번, 연락처"
+                        android:fontFamily="@font/nanumsquare_regular"
+                        android:layout_gravity="center"
+                        android:textSize="15sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text = "조회 목적 : 신원 확인 및 수령 시 본인 확인"
+                        android:fontFamily="@font/nanumsquare_bold"
+                        android:layout_gravity="center"
+                        android:textSize="15sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text = "아래 버튼을 클릭함으로 위 정보를\n조회하는 것에 대해 동의하는 것으로 간주합니다."
+                        android:gravity="center"
+                        android:fontFamily="@font/nanumsquare_regular"
+                        android:layout_gravity="center"
+                        android:textSize="15sp"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text = "본인 확인을 위해 본인 이름으로 발송된 택배만\n대리 수령이 가능합니다."
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    android:fontFamily="@font/nanumsquare_regular"
+                    android:layout_gravity="center"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text = "공과대학 학생회는 단순 택배 보관 역할만 진행하며,\n주소 오기재, 배송 도중 파손 등으로 인해\n발생하는 피해에 대해 책임지지 않습니다."
+                    android:textColor="#ff4d4d"
+                    android:gravity="center"
+                    android:fontFamily="@font/nanumsquare_regular"
+                    android:layout_gravity="center"
+                    android:textSize="15sp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.royrodriguez.transitionbutton.TransitionButton
+                        android:id="@+id/btn_request"
+                        android:layout_width="300dp"
+                        android:layout_height="60dp"
+                        android:fontFamily="@font/nanumsquare_bold"
+                        android:layout_marginTop="20dp"
+                        android:text="대리 수령 요청하기"
+                        android:layout_gravity="center"
+                        android:textColor="#ffffff"
+                        app:defaultColor="#C83F51B5"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/btnLayout"
+                        app:loaderColor="#ffffff" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/nanumsquare_bold"
+                        android:id = "@+id/btn_log"
+                        android:background="@color/transparent"
+                        android:text = "요청 기록 확인하기"
+                        android:textColor="@color/black"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

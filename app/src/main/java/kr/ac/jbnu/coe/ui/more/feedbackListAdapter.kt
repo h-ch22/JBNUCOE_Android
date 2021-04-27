@@ -28,6 +28,7 @@ class feedbackListAdapter(val context : Context, val feedbackList : ArrayList<fe
         val category = itemView?.findViewById<TextView>(R.id.category)
         val type = itemView?.findViewById<TextView>(R.id.type)
         val date = itemView?.findViewById<TextView>(R.id.dateTime)
+        val status = itemView?.findViewById<TextView>(R.id.status)
 
         fun bind(feedbackItem : feedbackItem, context: Context){
             title?.text = feedbackItem.feedbackTitle
@@ -35,6 +36,16 @@ class feedbackListAdapter(val context : Context, val feedbackList : ArrayList<fe
             author?.text = feedbackItem.author
             category?.text = feedbackItem.category
             type?.text = feedbackItem.type
+
+            if(feedbackItem.status == "true"){
+                status?.text = "답변 완료"
+                status?.setBackgroundResource(R.drawable.background_status_ok)
+            }
+
+            else{
+                status?.text = "답변 대기"
+                status?.setBackgroundResource(R.drawable.background_status_fail)
+            }
 
             itemView.setOnClickListener{itemClick(feedbackItem)}
         }
