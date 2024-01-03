@@ -15,7 +15,7 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.royrodriguez.transitionbutton.TransitionButton
 import kr.ac.jbnu.coe.R
-import kr.ac.jbnu.coe.UserManagement.activity_signIn
+import kr.ac.jbnu.coe.UserManagement.View.SignInView
 
 class activity_sportsDetail : AppCompatActivity(), View.OnClickListener{
     lateinit var title : TextView
@@ -241,7 +241,7 @@ class activity_sportsDetail : AppCompatActivity(), View.OnClickListener{
                                             else{
                                                 btn_apply.stopAnimation(TransitionButton.StopAnimationStyle.SHAKE, null)
                                                 showDialog(title = "로그인 오류", contents = "비정상 접근입니다.")
-                                                val intent = Intent(this, activity_signIn::class.java)
+                                                val intent = Intent(this, SignInView::class.java)
                                                 startActivity(intent)
                                                 finish()
                                             }

@@ -288,7 +288,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id = "@+id/uniformLL"
+                android:id = "@+id/helmetLL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -298,6 +298,51 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/slipperLL">
+
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:src = "@drawable/ic_helmet"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text = "헬멧"
+                        android:textColor="#000000"
+                        android:fontFamily="@font/nanumsquare_extrabold"
+                        android:textSize="25sp"/>
+
+                    <TextView
+                        android:id = "@+id/helmet_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text = ""
+                        android:textColor="#000000"
+                        android:fontFamily="@font/nanumsquare_bold"
+                        android:textSize="20sp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id = "@+id/uniformLL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginVertical="10dp"
+                android:background="@drawable/shape_list"
+                android:layout_marginHorizontal="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/helmetLL">
 
                 <ImageView
                     android:layout_width="wrap_content"

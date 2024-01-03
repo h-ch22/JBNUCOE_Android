@@ -13,3 +13,12 @@
 .externalNativeBuild
 .cxx
 local.properties
+JBNUCOEKEYSTORE
+google-services.json
+UserManagement.kt
+AES256Util.kt
+/release
+/app/build
+/app/src/main/assets
+/bottomNavigationView/
+/app/release

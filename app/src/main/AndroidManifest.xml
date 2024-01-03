@@ -1,31 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="kr.ac.jbnu.coe">
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+        package="kr.ac.jbnu.coe">
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:requestLegacyExternalStorage="true"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/Theme.전북대학교공과대학">
+            android:allowBackup="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:requestLegacyExternalStorage="true"
+            android:roundIcon="@mipmap/ic_launcher_round"
+            android:supportsRtl="true"
+            android:theme="@style/Theme.전북대학교공과대학">
 
-        <provider android:name="androidx.core.content.FileProvider"
-            android:authorities="${applicationId}.provider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-
-            <meta-data android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/provider_paths" />
+        <provider
+                android:name="androidx.core.content.FileProvider"
+                android:authorities="${applicationId}.provider"
+                android:exported="false"
+                android:grantUriPermissions="true">
+            <meta-data
+                    android:name="android.support.FILE_PROVIDER_PATHS"
+                    android:resource="@xml/provider_paths" />
         </provider>
 
         <activity
-            android:name="kr.ac.jbnu.coe.UserManagement.activity_signIn"
-            android:label="@string/app_name">
+                android:name=".UserManagement.View.SignInView"
+                android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -34,46 +36,47 @@
         </activity>
 
         <meta-data
-            android:name="com.naver.maps.map.CLIENT_ID"
-            android:value="wicv6qxnf3" />
+                android:name="com.naver.maps.map.CLIENT_ID"
+                android:value="wicv6qxnf3" />
 
-        <activity android:name="kr.ac.jbnu.coe.UserManagement.activity_license"/>
-        <activity android:name="kr.ac.jbnu.coe.UserManagement.activity_resetPassword"/>
-        <activity android:name="kr.ac.jbnu.coe.UserManagement.activity_insertUserInfo"/>
-        <activity android:name="kr.ac.jbnu.coe.UserManagement.activity_checkAcademic"/>
-        <activity android:name="kr.ac.jbnu.coe.ui.alliance.activity_allianceList"/>
-        <activity android:name="kr.ac.jbnu.coe.ui.alliance.activity_storeDetail"/>
-        <activity android:name="kr.ac.jbnu.coe.ui.alliance.activity_storeMap"/>
-        <activity android:name="kr.ac.jbnu.coe.ui.sports.activity_apply"/>
-        <activity android:name="kr.ac.jbnu.coe.ui.sports.activity_sportsCheck"/>
-        <activity android:name="kr.ac.jbnu.coe.ui.notifications.activity_noticeDetail"/>
-        <activity android:name= "kr.ac.jbnu.coe.ui.more.activity_introduceMain"/>
-        <activity android:name="kr.ac.jbnu.coe.ui.more.activity_introduce"/>
-        <activity android:name="kr.ac.jbnu.coe.ui.more.activity_introduceDept"/>
-        <activity android:name="kr.ac.jbnu.coe.ui.more.activity_campusMap"/>
-        <activity android:name="kr.ac.jbnu.coe.ui.more.activity_feedbackHubMain"
-            android:windowSoftInputMode="adjustPan|adjustResize"/>
-        <activity android:name="kr.ac.jbnu.coe.ui.more.activity_allFeedback"/>
-        <activity android:name="kr.ac.jbnu.coe.ui.more.activity_feedbackDetail"/>
-        <activity android:name="kr.ac.jbnu.coe.ui.sports.activity_sportsDetail"/>
-        <activity android:name="kr.ac.jbnu.coe.ui.sports.activity_getMyRoom"/>
-        <activity android:name="kr.ac.jbnu.coe.ui.sports.activity_myRoomDetail"/>
-        <activity android:name="kr.ac.jbnu.coe.ui.more.activity_showInside"/>
-        <activity android:name="kr.ac.jbnu.coe.ui.more.activity_productStatus"/>
-        <activity android:name="kr.ac.jbnu.coe.ui.more.activity_percentage"/>
-        <activity android:name="kr.ac.jbnu.coe.ui.more.activity_info"/>
-        <activity android:name="kr.ac.jbnu.coe.ui.more.activity_EULA"/>
-        <activity android:name="kr.ac.jbnu.coe.MainActivity"/>
-        <activity android:name=".ui.more.activity_logList"/>
-        <activity android:name=".ui.handWriting.activity_handWriting"/>
-        <activity android:name=".ui.handWriting.activity_handWriting_write"/>
-        <activity android:name=".ui.handWriting.activity_handWritingDetails"/>
-        <activity android:name=".ui.handWriting.activity_handWriting_edit"/>
-        <activity android:name=".activity_singleImageView"/>
-        <activity android:name=".ui.more.activity_myFeedback"/>
-        <activity android:name=".ui.more.activity_myFeedbackDetails"/>
-        <activity android:name=".ui.more.activity_delivery"/>
-        <activity android:name=".ui.more.activity_deliveryLog"/>
+        <activity android:name=".UserManagement.View.LicenseView" />
+        <activity android:name=".UserManagement.View.ResetPasswordView" />
+        <activity android:name=".UserManagement.View.InsertUserInfoView" />
+        <activity android:name=".UserManagement.View.CheckAcademicView" />
+        <activity android:name=".ui.alliance.activity_allianceList" />
+        <activity android:name=".ui.alliance.activity_storeDetail" />
+        <activity android:name=".ui.alliance.activity_storeMap" />
+        <activity android:name=".ui.sports.activity_apply" />
+        <activity android:name=".ui.sports.activity_sportsCheck" />
+        <activity android:name=".ui.notifications.activity_noticeDetail" />
+        <activity android:name=".ui.more.activity_introduceMain" />
+        <activity android:name=".ui.more.activity_introduce" />
+        <activity android:name=".ui.more.activity_introduceDept" />
+        <activity android:name=".ui.more.activity_campusMap" />
+        <activity
+                android:name=".ui.more.activity_feedbackHubMain"
+                android:windowSoftInputMode="adjustPan|adjustResize" />
+        <activity android:name=".ui.more.activity_allFeedback" />
+        <activity android:name=".ui.more.activity_feedbackDetail" />
+        <activity android:name=".ui.sports.activity_sportsDetail" />
+        <activity android:name=".ui.sports.activity_getMyRoom" />
+        <activity android:name=".ui.sports.activity_myRoomDetail" />
+        <activity android:name=".ui.more.activity_showInside" />
+        <activity android:name=".ui.more.activity_productStatus" />
+        <activity android:name=".ui.more.activity_percentage" />
+        <activity android:name=".ui.more.activity_info" />
+        <activity android:name=".ui.more.activity_EULA" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".ui.more.activity_logList" />
+        <activity android:name=".ui.handWriting.activity_handWriting" />
+        <activity android:name=".ui.handWriting.activity_handWriting_write" />
+        <activity android:name=".ui.handWriting.activity_handWritingDetails" />
+        <activity android:name=".ui.handWriting.activity_handWriting_edit" />
+        <activity android:name=".activity_singleImageView" />
+        <activity android:name=".ui.more.activity_myFeedback" />
+        <activity android:name=".ui.more.activity_myFeedbackDetails" />
+        <activity android:name=".ui.more.activity_delivery" />
+        <activity android:name=".ui.more.activity_deliveryLog" />
     </application>
 
 </manifest>

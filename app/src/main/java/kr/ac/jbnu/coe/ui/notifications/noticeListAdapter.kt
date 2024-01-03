@@ -13,6 +13,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import kr.ac.jbnu.coe.R
+import java.util.*
 
 class noticeListAdapter(val context : Context, val noticeList : ArrayList<noticeItem>, val itemClick : (noticeItem) -> Unit) : RecyclerView.Adapter<noticeListAdapter.Holder>(), Filterable {
     var filteredList : ArrayList<noticeItem>? = null

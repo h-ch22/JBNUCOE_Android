@@ -27,6 +27,7 @@ class activity_productStatus : AppCompatActivity(), View.OnClickListener{
     lateinit var toolbar : androidx.appcompat.widget.Toolbar
     lateinit var txt_slipperStatus : TextView
     lateinit var txt_uniformStatus : TextView
+    lateinit var txt_helmetStatus : TextView
     val db = Firebase.firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,6 +44,7 @@ class activity_productStatus : AppCompatActivity(), View.OnClickListener{
         toolbar = findViewById(R.id.toolbar)
         txt_slipperStatus = findViewById(R.id.slipper_status)
         txt_uniformStatus = findViewById(R.id.uniform_status)
+        txt_helmetStatus = findViewById(R.id.helmet_status)
 
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -106,6 +108,7 @@ class activity_productStatus : AppCompatActivity(), View.OnClickListener{
         val batteryRef = db.collection("Products").document("battery")
         val uniformRef = db.collection("Products").document("uniform")
         val slipperRef = db.collection("Products").document("slipper")
+        val helmetRef = db.collection("Products").document("helmet")
 
         calcRef.get().addOnCompleteListener{task ->
             if(task.isSuccessful){
@@ -252,6 +255,31 @@ class activity_productStatus : AppCompatActivity(), View.OnClickListener{
                         txt_slipperStatus?.setTextColor(Color.parseColor("#ff5145"))
                         txt_slipperStatus?.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_error, 0, 0, 0)
                         txt_slipperStatus?.compoundDrawables?.get(0)?.setTint(Color.parseColor("#ff5145"))
+                    }
+                }
+            }
+        }
+
+        helmetRef.get().addOnCompleteListener{task ->
+            if(task.isSuccessful){
+                val document = task.result
+
+                if(document.exists()){
+                    val helmetAll : Long = document.get("all") as Long
+                    val helmetCurrent : Long = document.get("late") as Long
+
+                    if(helmetAll >= helmetCurrent){
+                        txt_helmetStatus.text = "대여 가능 (" + helmetCurrent + " / " + helmetAll + ")"
+                        txt_helmetStatus.setTextColor(Color.parseColor("#009630"))
+                        txt_helmetStatus?.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_check, 0, 0, 0)
+                        txt_helmetStatus?.compoundDrawables?.get(0)?.setTint(Color.parseColor("#009630"))
+                    }
+
+                    if(helmetCurrent == 0L){
+                        txt_helmetStatus.text = "대여 불가"
+                        txt_helmetStatus?.setTextColor(Color.parseColor("#ff5145"))
+                        txt_helmetStatus?.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_error, 0, 0, 0)
+                        txt_helmetStatus?.compoundDrawables?.get(0)?.setTint(Color.parseColor("#ff5145"))
                     }
                 }
             }

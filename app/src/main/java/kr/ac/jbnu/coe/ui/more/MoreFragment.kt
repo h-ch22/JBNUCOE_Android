@@ -4,14 +4,10 @@ import android.app.Activity
 import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
-import android.content.ContentResolver
 import android.content.SharedPreferences
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,15 +16,12 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.bumptech.glide.request.RequestOptions
-import com.esafirm.imagepicker.features.ImagePicker
-import com.esafirm.imagepicker.features.ReturnMode
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
@@ -36,9 +29,8 @@ import com.google.firebase.storage.StorageReference
 import com.royrodriguez.transitionbutton.TransitionButton
 import kr.ac.jbnu.coe.MainActivity
 import kr.ac.jbnu.coe.R
-import kr.ac.jbnu.coe.UserManagement.activity_signIn
+import kr.ac.jbnu.coe.UserManagement.View.SignInView
 import kr.ac.jbnu.coe.ui.handWriting.activity_handWriting
-import java.io.InputStream
 
 class MoreFragment : Fragment(), View.OnClickListener {
     lateinit var img_profile : ImageView
@@ -295,6 +287,42 @@ class MoreFragment : Fragment(), View.OnClickListener {
     }
 
     fun signOut(){
+        val docRef = db.collection("User").document(email)
+
+        docRef.get().addOnCompleteListener { task ->
+            if(task.isSuccessful){
+                val document = task.result
+
+                if(document != null && document.exists()){
+                    val studentNo = document.get("studentNo").toString()
+
+                    val update = hashMapOf<String, Any>(
+                        "token" to FieldValue.delete()
+                    )
+
+                    docRef.update(update)
+
+                    val adminRef = db.collection("User").document("Admin")
+
+                    adminRef.get().addOnCompleteListener { task ->
+                        if(task.isSuccessful){
+                            val document = task.result
+
+                            if(document != null && document.get(studentNo) != null){
+                                val tokenRef = adminRef.collection("tokens").document(studentNo)
+
+                                val update = hashMapOf<String, Any>(
+                                    "token" to FieldValue.delete()
+                                )
+
+                                tokenRef.update(update)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         Firebase.auth.signOut()
 
         if(Firebase.auth.currentUser == null){
@@ -302,7 +330,7 @@ class MoreFragment : Fragment(), View.OnClickListener {
             dlg.setTitle("로그아웃 완료")
             dlg.setMessage("정상 처리 되었습니다.")
             dlg.setPositiveButton("확인", DialogInterface.OnClickListener { dialog, which ->
-                val intent = Intent(mContext, activity_signIn::class.java)
+                val intent = Intent(mContext, SignInView::class.java)
                 startActivity(intent)
             })
 
@@ -316,7 +344,23 @@ class MoreFragment : Fragment(), View.OnClickListener {
 
     fun secession(){
         val userRef = storageReference.child("profile/" + email + "/profile_" + email + ".jpg")
+        val docRef = db.collection("User").document(email)
+
+        docRef.get().addOnCompleteListener { task ->
+            if(task.isSuccessful){
+                val document = task.result
+
+                if(document != null && document.exists()){
+                    val adminRef = db.collection("User").document("Admin").collection("tokens").document(document.get("studentNo").toString())
+
+                    adminRef.delete()
+                }
+            }
+        }
+
+        docRef.delete()
         userRef.delete()
+
 
         Firebase.auth.currentUser?.delete()?.addOnCompleteListener{ task ->
             if(task.isSuccessful){
@@ -324,7 +368,7 @@ class MoreFragment : Fragment(), View.OnClickListener {
                 dlg.setTitle("감사 인사")
                 dlg.setMessage("회원 탈퇴가 정상적으로 처리되었습니다.\n더 나은 서비스로 다시 찾아뵐 수 있도록 노력하겠습니다.\n그 동안 서비스를 이용해주셔서 진심으로 감사드립니다.")
                 dlg.setPositiveButton("확인", DialogInterface.OnClickListener { dialog, which ->
-                    val intent = Intent(mContext, activity_signIn::class.java)
+                    val intent = Intent(mContext, SignInView::class.java)
                     startActivity(intent)
                 })
 

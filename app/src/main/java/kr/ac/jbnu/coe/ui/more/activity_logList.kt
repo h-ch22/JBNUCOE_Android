@@ -77,6 +77,7 @@ class activity_logList : AppCompatActivity(){
         val umbrellaRef = db.collection("Products").document("umbrella").collection("Log")
         val slipperRef = db.collection("Products").document("slipper").collection("Log")
         val uniformRef = db.collection("Products").document("uniform").collection("Log")
+        val helmetRef = db.collection("Products").document("helmet").collection("Log")
 
         batteryRef.get().addOnSuccessListener { result ->
             for(document in result){
@@ -149,6 +150,34 @@ class activity_logList : AppCompatActivity(){
                                         logList.add(
                                                 logItem(
                                                         productName = "유니폼",
+                                                        date = document.id,
+                                                        returned = document.get("returned") as Boolean,
+                                                        num = document.get("number") as String
+                                                )
+                                        )
+                                    }
+                                }
+
+                                logList.sortByDescending { it.date }
+
+                                logListAdapter = logAdapter(applicationContext, logList)
+
+
+                                logListView.adapter = logListAdapter
+
+                                val layoutManager = LinearLayoutManager(applicationContext)
+                                logListView.layoutManager = layoutManager
+                                logListView.setHasFixedSize(true)
+                            }
+
+                            helmetRef.get().addOnSuccessListener { result ->
+                                for (document in result) {
+                                    val studentNo_doc = document.get("studentNo").toString()
+
+                                    if (studentNo_doc.equals(studentNo)) {
+                                        logList.add(
+                                                logItem(
+                                                        productName = "헬멧",
                                                         date = document.id,
                                                         returned = document.get("returned") as Boolean,
                                                         num = document.get("number") as String

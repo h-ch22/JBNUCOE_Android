@@ -53,7 +53,7 @@
                 android:layout_height="wrap_content"
                 android:id = "@+id/phone"
                 android:text = ""
-                android:textColor="#ffffff"
+                android:textColor="#595959"
                 android:fontFamily="@font/nanumsquare_bold"
                 android:textSize="15sp"/>
 
